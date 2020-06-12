@@ -13,7 +13,7 @@ Los wireframes de las pantallas principales de nuestro proyecto:
 
 ### Detalle de Clase a Inscribirse con Usuario Logueado
 
-[Perfil Usuario](Detalle.md)
+[Detalle Clase](Detalle.md)
 
 ### Perfil del Usuario Registrado
 
