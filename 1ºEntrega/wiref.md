@@ -4,7 +4,7 @@ Los wireframes de las pantallas principales de nuestro proyecto:
 
 ### Home
 
-[Home](home.md)
+[Home](Home.md)
 
 ### Perfil del Profesor Registrado
 
