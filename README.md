@@ -1,5 +1,8 @@
 # Trabajo Integrador - Programación en Ambiente Web : Dashcourse
 
+## Integrantes
+Sofia Gimena Vázquez, Esteban Iarza y Mariano Rapaport.
+
 ## Propuesta del Proyecto
 
 **Propósito:**   Sitio de publicación de Clases Online pagos y gratuitos 
