@@ -22,8 +22,10 @@ class CreateCoursesTable extends Migration
             $table->text('long_description')->nullable(true);
             $table->smallInteger('max_enrollments');
             $table->decimal('price', 8, 2);
+            $table->integer('duration_mins');
             $table->string('platform_name');
             $table->string('access_link')->nullable(true);
+            $table->string('access_info')->nullable(true);
             $table->timestamps();
         });
     }

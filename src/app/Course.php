@@ -4,6 +4,7 @@ namespace App;
 
 use Doctrine\DBAL\Types\TextType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -32,6 +33,21 @@ class Course extends Model
         'name', 'user_id', 'date_time', 'short_description', 'long_description', 'max_enrollments', 'price',
         'platform_name', 'access_link'
     ];
+
+    public static function upcoming()
+    {
+        return Course::query()->where('date_time', '>', now())->limit(10)->get();
+    }
+
+    public static function asStudent()
+    {
+        return Course::query()->join('enrollments as e', 'e.course_id', '=' , 'courses.id' )
+            ->where('e.user_id', '=', Auth::id())->get();
+    }
+
+    public static function asTeacher(){
+        return Course::all()->where('user_id', '=', Auth::id());
+    }
 
 
 }

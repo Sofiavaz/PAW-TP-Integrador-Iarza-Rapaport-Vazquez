@@ -1,39 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+    <section>Imagen de portada</section>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    @include('partials.upcoming_courses')
 
-        <!-- Styles -->
+    @include('partials.how_does_it_work_students')
 
-    </head>
-    <body>
-        <div>
-            @if (Route::has('login'))
-                <div>
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    @include('partials.recommended_courses')
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+    @include('partials.how_does_it_work_teachers')
 
-            <div>
-                <div>
-                    Dashcourse
-                </div>
-
-            </div>
-        </div>
-    </body>
-</html>
+@endsection

@@ -1,17 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    <div>
-        <div>
-            <div>
-                <div>Cursos</div>
+    <section>
+        <h3>Acerca del curso...</h3>
 
-                <div>
-                    Listado de cursos
-                </div>
-            </div>
+        <div>
+            <img>
+            <p>Nombre:</p>
+            <p>Profesor:</p>
+            <p>Día y hora:</p>
+            <p>Precio:</p>
+            <p>Descripción:</p>
+            <p>Duración:</p>
+            <p>Lugares disponibles:</p>
+            <p>Plataforma:</p>
+            <p>Qué vas a aprender:</p>
+            <a href="">Inscribirse</a>
         </div>
-    </div>
-</div>
+    </section>
+
+    @include('partials.how_does_it_work_students')
+
+    @include('partials.upcoming_courses')
+
+    @include('partials.recommended_courses')
 @endsection

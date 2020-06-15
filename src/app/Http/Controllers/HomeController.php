@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $coursesAsStudent = Course::asStudent();
+
+        $coursesAsTeacher = Course::asTeacher();
+
+        return view('home.index', compact('coursesAsStudent', 'coursesAsTeacher'));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Requests\StoreCourse;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,9 +15,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::paginate(5);
 
-        return view('courses.index', compact('courses'));
+        return view('courses.index')->with('courses', $courses);
     }
 
     /**
@@ -35,9 +36,15 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCourse $request)
     {
-        // Validate fields
+        dd($request);
+        $course = new Course();
+        $course->fill($request->all());
+
+        $course->save();
+
+        return back()->with('message', 'La clase se ha registrado con éxito');
     }
 
     /**
@@ -46,9 +53,12 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show($id)
     {
         //
+        $course = Course::findOrFail($id);
+
+        return view('courses.show')->with('course', $course);
     }
 
     /**
