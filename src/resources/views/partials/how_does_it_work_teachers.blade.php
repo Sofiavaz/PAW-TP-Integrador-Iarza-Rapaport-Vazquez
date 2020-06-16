@@ -1,6 +1,4 @@
-
-
-<section>
+<section class="row">
 
     <h3>Cómo funciona Dashcourse para profesores...</h3>
     <ul>

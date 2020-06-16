@@ -4,6 +4,10 @@
 <section>
     <h1>Dashboard</h1>
 
+    @if (session('message'))
+        <p>{{session('message')}}</p>
+    @endif
+
     <h2>Clases que vas a dar</h2>
     <ul>
         @forelse($coursesAsTeacher as $course)

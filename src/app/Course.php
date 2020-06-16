@@ -31,22 +31,58 @@ class Course extends Model
      */
     protected $fillable = [
         'name', 'user_id', 'date_time', 'short_description', 'long_description', 'max_enrollments', 'price',
-        'platform_name', 'access_link'
+        'duration_mins', 'platform_name', 'access_link'
     ];
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public static function upcoming()
     {
-        return Course::query()->where('date_time', '>', now())->limit(10)->get();
+        if (Auth::check()) {
+
+            return Course::query()
+                ->join('enrollments as e', 'e.course_id', 'courses.id')
+                ->where('e.user_id', '<>', Auth::id())
+                ->where('courses.user_id', '<>', Auth::id())
+                ->where('courses.date_time', '>', now())->limit(10)->get();
+        }
+        else
+        {
+            return Course::query()->where('courses.date_time', '>', now())->limit(10)->get();
+        }
     }
 
     public static function asStudent()
     {
-        return Course::query()->join('enrollments as e', 'e.course_id', '=' , 'courses.id' )
+        return Course::query()->join('enrollments as e', 'e.course_id', '=', 'courses.id')
             ->where('e.user_id', '=', Auth::id())->get();
     }
 
-    public static function asTeacher(){
+    public static function asTeacher()
+    {
         return Course::all()->where('user_id', '=', Auth::id());
+    }
+
+    public static function recommended()
+    {
+        if (Auth::check()) {
+
+            // TODO Setear cookies de ultimos cursos vistos y acceder a los que esten relacionados
+            return Course::query()->join('enrollments as e', 'e.course_id', 'courses.id')
+                ->where('e.user_id', '<>', Auth::id())
+                ->where('courses.user_id', '<>', Auth::id())->get();
+        }
+        else {
+            return Course::all();
+        }
+    }
+
+    public function platform()
+    {
+        return $this->belongsTo(Platform::class);
     }
 
 

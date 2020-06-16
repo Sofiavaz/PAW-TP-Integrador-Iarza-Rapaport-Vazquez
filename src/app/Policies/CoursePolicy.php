@@ -11,8 +11,6 @@ class CoursePolicy
 {
     use HandlesAuthorization;
 
-
-
     /**
      * Determine whether the user can create models.
      *
@@ -21,8 +19,7 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-        //
-        return $user->isTeacher()
+       return $user->isTeacher()
             ? Response::allow()
             : Response::deny('Debes ser un profesor para poder crear un curso.');
     }

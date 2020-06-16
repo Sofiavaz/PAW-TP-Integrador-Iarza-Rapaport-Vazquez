@@ -1,11 +1,8 @@
-@section('scripts')
-    <script src="/js/partials/recommendedCourses.js"></script>
-@endsection
+<script src="/js/partials/recommendedCourses.js"></script>
 
-<section>
+<section class="row">
 
     <h3>Clases que pueden interesarte...</h3>
-    <ul>
-
+    <ul id="recommended-list">
     </ul>
 </section>

@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('courses/upcoming', 'CourseController@upcoming')->name('api.courses.upcoming');
+Route::get('courses/recommended', 'CourseController@recommended')->name('api.courses.recommended');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('platforms/all', 'PlatformController@all')->name('api.platforms.all');

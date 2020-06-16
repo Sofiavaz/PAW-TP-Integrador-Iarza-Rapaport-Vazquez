@@ -19,7 +19,7 @@ body {
     width: 100vw;
     height: 7vh;
     position: fixed;
-
+    background-color: #ffffff;
     left: 0;
     top: 0;
     border-bottom: solid 1px #eeeeee;
@@ -228,6 +228,7 @@ body {
     .container {
         width: 75%;
         margin-left: 12.5%;
+        overflow: hidden;
     }
 
     .navbar{

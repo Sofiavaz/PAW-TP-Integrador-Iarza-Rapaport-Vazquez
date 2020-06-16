@@ -52,7 +52,7 @@ class User extends Authenticatable
     /**
      *
      */
-    public function isTeacher() : boolean
+    public function isTeacher()
     {
         return $this->hasVerifiedEmail();
     }

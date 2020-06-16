@@ -1,4 +1,4 @@
-<section>
+<section class="row">
 
     <h3>Cómo funciona Dashcourse para alumnos...</h3>
     <ul>
