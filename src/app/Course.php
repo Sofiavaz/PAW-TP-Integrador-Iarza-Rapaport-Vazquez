@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 /**
- * Class Course
+ * Class CourseCard
  * @package App
  * @property int id
  * @property string name

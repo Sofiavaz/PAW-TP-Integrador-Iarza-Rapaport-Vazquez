@@ -1,24 +1,12 @@
+import CourseCard from '../components/CourseCard.js';
+
 document.addEventListener("DOMContentLoaded", function(event){
     var xhttp = new XMLHttpRequest();
 
     let coursesList = document.getElementById('recommended-list');
 
     function addCourse(e) {
-        let li = document.createElement('li');
-
-        let courseTitle = document.createElement('h4');
-        courseTitle.innerText = e.name;
-        li.append(courseTitle);
-
-        let price = document.createElement('span');
-        price.innerText = e.price;
-        li.append(price);
-
-        let info = document.createElement('p');
-        info.innerText = e.short_description;
-        li.append(info);
-
-        coursesList.append(style(li));
+        coursesList.append(CourseCard(e.id, e.name, e.short_description, e.price, e.duration_mins, e.user_id));
     }
 
     xhttp.onreadystatechange = function() {

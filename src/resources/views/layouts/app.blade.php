@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -21,17 +21,18 @@
 <body>
 <div id="app">
     <nav class="navbar">
-        <div class="">
-            <a class="navbar-logo col-res-3" href="{{ url('/') }}">
-                <img src="https://es.freelogodesign.org/Content/img/logo-samples/flooop.png">
-            </a>
-
-            <section class="navbar-items col-res-2 offset-5 text-right">
+        <div class="row container">
+            <section class="col-2">
+                <a class="navbar-logo" href="{{ url('/') }}">
+                    <p>Dashcourse</p>
+                </a>
+            </section>
+            <section class="navbar-items col-2 offset-6 text-right">
                 <ul>
                     <!-- Authentication Links -->
                     @guest
                         <li>
-                            <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="ml-2">
@@ -46,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('logout') }}"
+                            <a href="{{ route('logout') }}" class="ml-2"
                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

@@ -45,7 +45,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-//        $this->authorize('create', Course::class);
+//        $this->authorize('create', CourseCard::class);
 
         return view('courses.create');
     }

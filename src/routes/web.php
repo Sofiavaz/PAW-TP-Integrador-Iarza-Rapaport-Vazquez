@@ -19,5 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::resource('/courses', 'CourseController');
+Route::post('/courses/link/define', 'CourseController@defineLink')->name('courses.defineLink');
