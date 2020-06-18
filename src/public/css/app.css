@@ -15,7 +15,8 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     font-family: 'Open Sans';
 }
 
@@ -33,14 +34,9 @@ body {
 .navbar-logo p{
     color: #1f6fc2;
     font-size: 150%;
+    font-weight: 800;
     margin-top: 1vh;
-    margin-left: 1vw;
-}
 
-.navbar-items{
-    background-color: #ffffff;
-    visibility: hidden;
-    text-align: center;
 }
 
 .navbar-items ul {
@@ -49,6 +45,9 @@ body {
 
 .navbar-items li {
     list-style-type: none;
+    display: inline;
+    font-size: 85%;
+
 }
 
 a {
@@ -61,9 +60,9 @@ a {
 
 .cover {
     background-image:
-        linear-gradient(to left, rgba(55, 136, 252, 0.5), rgba(57, 109, 293, 0.8)),
+        linear-gradient(to left, rgba(55, 136, 252, 0.5), rgba(57, 119, 223, 0.8)),
         url('../imgs/portada.jpg');
-    height: 45vh;
+    height: 40vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -71,20 +70,21 @@ a {
 }
 
 .cover-body {
-    margin-left: 5%;
+
     padding-top: 5%;
 }
 
 .cover h1 {
-    font-size: 200%;
-    padding-top: 2.5%;
+    font-size: 150%;
+    padding-top: 10%;
     margin-bottom: 0;
 }
 
 .cover h2 {
     font-size: 100%;
     font-weight: 400;
-
+    width: 95%;
+    padding-bottom: 2.5%;
 }
 
 .col-1 {

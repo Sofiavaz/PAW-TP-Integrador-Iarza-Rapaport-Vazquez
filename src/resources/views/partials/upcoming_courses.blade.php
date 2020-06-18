@@ -1,4 +1,4 @@
-<script src="/js/partials/upcomingCourses.js"></script>
+<script src="/js/partials/upcomingCourses.js" type="module"></script>
 
 <section class="container">
     <h3 class="section-title">Clases comenzando pronto</h3>

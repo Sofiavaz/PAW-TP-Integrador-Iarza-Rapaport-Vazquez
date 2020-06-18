@@ -17,6 +17,11 @@ export default function CourseCard(id, title, short_descr, price, duration, user
     let info = document.createElement('p');
     info.innerText = short_descr;
     li.append(info);
+
+    let button = document.createElement('a');
+    button.href = "/courses/" + id;
+    button.innerText = "Más info";
+    li.append(button);
     return style(li);
 }
 

@@ -22,12 +22,12 @@
 <div id="app">
     <nav class="navbar">
         <div class="row container">
-            <section class="col-2">
+            <section class="col-4">
                 <a class="navbar-logo" href="{{ url('/') }}">
                     <p>Dashcourse</p>
                 </a>
             </section>
-            <section class="navbar-items col-2 offset-6 text-right">
+            <section class="navbar-items col-6 text-right">
                 <ul>
                     <!-- Authentication Links -->
                     @guest
@@ -36,14 +36,14 @@
                         </li>
                         @if (Route::has('register'))
                             <li class="ml-2">
-                                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li>
                             <a href="{{route('home')}}" role="button" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                Home
                             </a>
                         </li>
                         <li>

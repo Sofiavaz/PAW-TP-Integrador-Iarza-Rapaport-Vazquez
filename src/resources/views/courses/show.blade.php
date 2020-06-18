@@ -17,7 +17,7 @@
                     <p>${{$course->price}}</p>
                     <p>{{$course->date_time}}</p>
                     <p>Lugares: {{$course->duration_mins}}</p>
-                    <a href="" class="btn btn-border-blue">Inscribirse</a>
+                    <a href="{{route('enrollment.enroll', $course->id)}}" class="btn btn-border-blue">Inscribirse</a>
                 </div>
             </div>
 

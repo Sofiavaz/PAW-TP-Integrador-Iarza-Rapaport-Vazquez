@@ -5,15 +5,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 
     let coursesList = document.getElementById('recommended-list');
 
-    function addCourse(e) {
-        coursesList.append(CourseCard(e.id, e.name, e.short_description, e.price, e.duration_mins, e.user_id));
-    }
-
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(this.responseText);
             data.forEach(function(e) {
-                addCourse(e)
+                coursesList.append(CourseCard(e.id, e.name, e.short_description, e.price, e.duration_mins, e.user_id));
             });
         }
     };
