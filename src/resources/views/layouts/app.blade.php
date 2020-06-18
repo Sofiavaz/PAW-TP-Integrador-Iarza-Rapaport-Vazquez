@@ -64,7 +64,7 @@
         </div>
     </nav>
 
-    <main class="body container">
+    <main class="body ">
 
         @yield('content')
 

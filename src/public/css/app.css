@@ -1,5 +1,7 @@
 body {
     font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -27,9 +29,6 @@ body {
     border-bottom: solid 1px #eeeeee;
 }
 
-.body {
-    margin-top: 8vh;
-}
 
 .navbar-logo p{
     color: #1f6fc2;
@@ -58,6 +57,35 @@ a {
 
 .navbar-items a {
     color: #1d68a7;
+}
+
+.cover {
+    padding-left: 0;
+    background-image:
+        linear-gradient(to left, rgba(55, 136, 252, 0.5), rgba(57, 109, 293, 0.8)),
+        url('../imgs/portada.jpg');
+    height: 40vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.cover-body {
+    margin-left: 5%;
+    padding-top: 5%;
+}
+
+.cover h1 {
+    font-size: 200%;
+    padding-top: 2.5%;
+    margin-bottom: 0;
+}
+
+.cover h2 {
+    font-size: 100%;
+    font-weight: 400;
+
 }
 
 .col-1 {
@@ -117,6 +145,51 @@ a {
 .text-right {
     text-align: right;
 }
+
+.text-lg{
+    font-size: 125%;
+}
+
+.ml-1 {
+    margin-left: 2.5%;
+}
+
+.ml-2 {
+    margin-left: 5%;
+}
+
+.ml-3 {
+    margin-left: 7.5%;
+}
+
+.ml-4 {
+    margin-left: 10%;
+}
+
+.ml-5 {
+    margin-left: 12.5%;
+}
+
+.p-1 {
+    padding: 1%;
+}
+
+.p-2 {
+    padding: 2%;
+}
+
+.p-3 {
+    padding: 3%;
+}
+
+.p-4 {
+    padding: 4%;
+}
+
+.p-5 {
+    padding: 5%;
+}
+
 
 @media (min-width: 768px) {
 
@@ -213,25 +286,7 @@ a {
         float: left;
     }
 
-    .ml-1 {
-        margin-left: 2.5%;
-    }
 
-    .ml-2 {
-        margin-left: 5%;
-    }
-
-    .ml-3 {
-        margin-left: 7.5%;
-    }
-
-    .ml-4 {
-        margin-left: 10%;
-    }
-
-    .ml-5 {
-        margin-left: 12.5%;
-    }
 
     .container {
         width: 75%;
@@ -259,16 +314,38 @@ a {
     padding: 8px;
 }
 
+.btn-lg {
+    padding: 12px;
+}
 
-.btn-border-blue {
+.btn-border {
     background-color: #3f9ae5;
     color: #ffffff;
     border: solid 1px;
     transition-duration: 0.5s;
 }
 
+.btn-border-blue {
+    background-color: #3f9ae5;
+    color: #ffffff;
+    transition-duration: 0.5s;
+}
+
+.btn-border-white {
+    background-color: #ffffff;
+    color: #3f7ae5;
+    transition-duration: 0.5s;
+}
+
 .btn-border-blue:hover {
     background-color: #2f7fc2;
+    transition-duration: 0.5s;
+}
+
+.btn-border-white:hover {
+    background-color: #2f7fe2;
+    color: #fff;
+    transition-duration: 0.5s;
 }
 
 .hidden {
