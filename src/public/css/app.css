@@ -60,12 +60,11 @@ a {
 }
 
 .cover {
-    padding-left: 0;
     background-image:
         linear-gradient(to left, rgba(55, 136, 252, 0.5), rgba(57, 109, 293, 0.8)),
         url('../imgs/portada.jpg');
-    height: 40vh;
-    width: 100vw;
+    height: 45vh;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -280,13 +279,10 @@ a {
         margin-left: 90%;
     }
 
-
     .row {
         width: 100%;
         float: left;
     }
-
-
 
     .container {
         width: 75%;
@@ -311,11 +307,11 @@ a {
 
 .btn {
     cursor: pointer;
-    padding: 8px;
 }
 
 .btn-lg {
-    padding: 12px;
+    padding: 10px;
+    font-weight: 600;
 }
 
 .btn-border {
@@ -323,6 +319,7 @@ a {
     color: #ffffff;
     border: solid 1px;
     transition-duration: 0.5s;
+    margin: 0;
 }
 
 .btn-border-blue {

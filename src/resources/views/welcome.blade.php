@@ -4,12 +4,12 @@
     <section class="cover">
         <div class="cover-body container">
             <h1>Cartelera de clases en vivo</h1>
-            <div class="col-res-4">
+            <div class="col-res-3">
                 <h2>Explorás clases en vivo. Te inscribís. Recibís los datos para poder asistir.</h2>
             </div>
-            <div class="row">
+            <p class="row">
                 <a class="btn btn-lg btn-border-white">Explorar</a>
-            </div>
+            </p>
         </div>
     </section>
 
