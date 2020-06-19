@@ -4,4 +4,5 @@
     <h3 class="section-title">Clases que pueden interesarte</h3>
     <ul id="recommended-list">
     </ul>
+    <button id="buttonMore">Ver más</button>
 </section>
