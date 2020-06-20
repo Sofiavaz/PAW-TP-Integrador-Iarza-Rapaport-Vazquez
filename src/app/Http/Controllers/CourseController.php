@@ -34,9 +34,10 @@ class CourseController extends Controller
      * Devuelve un json con las clases recomendadas
      */
     public function recommended(Request $request){
-        $page = $request->get('page');
+//        $page = $request->get('page');
         $perPage = $request->get('perPage');
-        return Course::recommended()->forPage($page, $perPage)->toJson();
+//        return Course::recommended()->forPage($page, $perPage)->all();
+        return Course::recommended($perPage);
     }
 
     /**

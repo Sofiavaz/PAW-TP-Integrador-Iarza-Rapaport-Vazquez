@@ -1,7 +1,28 @@
+:root {
+    --main-bg-color: #1f6fc2;
+    --main-bg-color-dark: #0858aa;
+    --main-border-color: #ccc;
+    --main-font-color: #555;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+
+ul {
+    padding: 0;
+}
+
+input{
+    box-sizing:border-box;
+    border-radius: 5px;
+    border: solid 1px var(--main-border-color);
+    line-height: 200%;
+    font-size: 100%;
+    padding-left: 5px;
 }
 
 
@@ -17,7 +38,6 @@ body {
 .container {
     width: 90%;
     margin-left: 5%;
-    font-family: 'Open Sans';
 }
 
 .navbar {
@@ -27,12 +47,12 @@ body {
     background-color: #ffffff;
     left: 0;
     top: 0;
-    border-bottom: solid 1px #eeeeee;
+    border-bottom: solid 1px var(--main-border-color);
 }
 
 
 .navbar-logo p{
-    color: #1f6fc2;
+    color: var(--main-bg-color);
     font-size: 150%;
     font-weight: 800;
     margin-top: 1vh;
@@ -47,7 +67,11 @@ body {
     list-style-type: none;
     display: inline;
     font-size: 85%;
+}
 
+.body{
+    margin-top: 5vh;
+    padding-top: 2vh;
 }
 
 a {
@@ -55,7 +79,7 @@ a {
 }
 
 .navbar-items a {
-    color: #1d68a7;
+    color:  var(--main-bg-color);
 }
 
 .cover {
@@ -147,6 +171,10 @@ a {
 
 .text-lg{
     font-size: 125%;
+}
+
+.text-danger {
+    color: #e3342f;
 }
 
 .ml-1 {
@@ -307,40 +335,41 @@ a {
 
 .btn {
     cursor: pointer;
+    padding: 5px;
 }
 
 .btn-lg {
-    padding: 10px;
-    font-weight: 600;
+    padding: 3vw;
+    font-size: 90%;
+    font-weight: 500;
+}
+
+.btn-block {
+    width: 100%;
 }
 
 .btn-border {
-    background-color: #3f9ae5;
+    background-color:  var(--main-bg-color);
     color: #ffffff;
     border: solid 1px;
     transition-duration: 0.5s;
     margin: 0;
 }
 
-.btn-border-blue {
-    background-color: #3f9ae5;
-    color: #ffffff;
+.btn-border:hover {
+    background-color: var(--main-bg-color-dark);
     transition-duration: 0.5s;
 }
+
 
 .btn-border-white {
     background-color: #ffffff;
-    color: #3f7ae5;
-    transition-duration: 0.5s;
-}
-
-.btn-border-blue:hover {
-    background-color: #2f7fc2;
+    color: var(--main-bg-color);
     transition-duration: 0.5s;
 }
 
 .btn-border-white:hover {
-    background-color: #2f7fe2;
+    background-color: var(--main-bg-color);
     color: #fff;
     transition-duration: 0.5s;
 }
@@ -351,7 +380,7 @@ a {
 
 
 .card {
-    border: solid 1px #cccccc;
+    border: solid 1px var(--main-border-color);
     border-radius: 5px;
     padding: 1.5%;
     margin-bottom: 2.5%;
@@ -361,5 +390,48 @@ a {
 
 .section-title {
     padding-bottom: 5px;
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px var(--main-border-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-weight: 900;
+    color: var(--main-font-color);
 }
+
+.info-title {
+    padding-bottom: 10px;
+    border-bottom: solid 1px var(--main-border-color);
+    font-family: 'Open sans', sans-serif;
+    font-size: 120%;
+    font-weight: 600;
+    color: var(--main-font-color);
+}
+
+p {
+    color: var(--main-font-color);
+}
+
+.courseCard {
+    list-style: none;
+    border: solid 1px var(--main-border-color);
+    border-radius: 15px;
+    padding: 1.5% 1% 5.5% 5%;
+    margin-bottom: 5%;
+}
+
+.courseCard img {
+    width: 100%;
+}
+
+.courseCardTitle {
+    width: 100%;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 125%;
+    color: var(--main-font-color);
+    margin-right: 0;
+}
+
+.courseCardPrice {
+
+}
+

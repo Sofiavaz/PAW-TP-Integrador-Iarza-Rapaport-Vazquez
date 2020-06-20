@@ -66,17 +66,17 @@ class Course extends Model
         return Course::all()->where('user_id', '=', Auth::id());
     }
 
-    public static function recommended()
+    public static function recommended($perPage)
     {
         if (Auth::check()) {
 
             // TODO Setear cookies de ultimos cursos vistos y acceder a los que esten relacionados
             return Course::query()->join('enrollments as e', 'e.course_id', 'courses.id')
                 ->where('e.user_id', '<>', Auth::id())
-                ->where('courses.user_id', '<>', Auth::id())->get();
+                ->where('courses.user_id', '<>', Auth::id())->paginate($perPage);
         }
         else {
-            return Course::all();
+            return Course::paginate($perPage);
         }
     }
 

@@ -1,36 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <section>
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <p>
-                <label for="name">{{ __('Name') }}</label>
+    <section class="container">
+        <h2 class="text-center info-title">¡Creá tu cuenta en Dashcourse!</h2>
 
-                <input id="name" type="text" name="name"
+        <form method="POST" action="{{ route('register') }}" class="offset-4 col-res-2">
+            @csrf
+            <p class="row">
+                <label for="name" class="col-res-10">{{ __('Name') }}</label>
+
+                <input id="name" type="text" name="name" class="col-res-10"
                        value="{{ old('name') }}" required autocomplete="name" autofocus>
             </p>
-            <p>
+            <p class="row">
                 @error('name')
                 <span role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                        <strong>{{ $message }}</strong>
+                   </span>
                 @enderror
 
                 <label for="email">{{ __('E-Mail Address') }}</label>
-                <input id="email" type="email"
+                <input id="email" type="email" class="col-res-10"
                        name="email" value="{{ old('email') }}" required autocomplete="email">
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                        <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </p>
-            <p>
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+            <p class="row">
+                <label for="password" class="text-md-right">{{ __('Password') }}</label>
 
-                <input id="password" type="password"
+                <input id="password" type="password" class="col-res-10"
                        name="password" required autocomplete="new-password">
             </p>
 
@@ -39,15 +41,21 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <p>
+            <p class="row">
                 <label for="password-confirm">{{ __('Confirm Password') }}</label>
 
                 <input id="password-confirm" type="password" name="password_confirmation"
-                       required autocomplete="new-password">
+                       required autocomplete="new-password" class="col-res-10">
             </p>
-            <button type="submit">
-                {{ __('Register') }}
-            </button>
+            <p class="row">
+                <button type="submit" class="btn btn-lg btn-block btn-border">
+                    {{ __('Register') }}
+                </button>
+            <p>
+            <p class="row text-center">
+                ¿Ya tenés una cuenta?
+                <b><a href="{{route('login')}}">Inicia sesión</a></b>
+            </p>
         </form>
     </section>
 @endsection

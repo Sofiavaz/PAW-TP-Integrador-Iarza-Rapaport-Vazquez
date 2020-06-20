@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event){
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(this.responseText);
             data.forEach(function(e) {
-                coursesList.append(CourseCard(e.id, e.name, e.short_description, e.price, e.duration_mins, e.user_id));
+                coursesList.append(CourseCard(e.id, e.name, e.date_time, e.short_description, e.price, e.duration_mins));
             });
         }
     };
