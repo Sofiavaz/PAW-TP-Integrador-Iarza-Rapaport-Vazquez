@@ -21,7 +21,7 @@
                 @enderror
             </p>
 
-            <button type="submit" class="btn btn-lg btn-block btn-border">
+            <button type="submit" class="btn btn-lg btn-block btn-blue">
                 Reestablecer contraseña
             </button>
         </form>

@@ -39,7 +39,7 @@ class Course extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public static function upcoming()
+    public static function upcoming($perPage)
     {
         if (Auth::check()) {
 
@@ -47,11 +47,11 @@ class Course extends Model
                 ->join('enrollments as e', 'e.course_id', 'courses.id')
                 ->where('e.user_id', '<>', Auth::id())
                 ->where('courses.user_id', '<>', Auth::id())
-                ->where('courses.date_time', '>', now())->limit(10)->get();
+                ->where('courses.date_time', '>', now())->paginate($perPage);
         }
         else
         {
-            return Course::query()->where('courses.date_time', '>', now())->limit(10)->get();
+            return Course::query()->where('courses.date_time', '>', now())->paginate($perPage);
         }
     }
 

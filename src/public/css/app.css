@@ -173,6 +173,10 @@ a {
     font-size: 125%;
 }
 
+.text-sm {
+    font-size: 85%;
+}
+
 .text-danger {
     color: #e3342f;
 }
@@ -336,6 +340,7 @@ a {
 .btn {
     cursor: pointer;
     padding: 5px;
+    border-radius: 5px;
 }
 
 .btn-lg {
@@ -348,15 +353,14 @@ a {
     width: 100%;
 }
 
-.btn-border {
+.btn-blue {
     background-color:  var(--main-bg-color);
     color: #ffffff;
-    border: solid 1px;
     transition-duration: 0.5s;
     margin: 0;
 }
 
-.btn-border:hover {
+.btn-blue:hover {
     background-color: var(--main-bg-color-dark);
     transition-duration: 0.5s;
 }
@@ -374,18 +378,29 @@ a {
     transition-duration: 0.5s;
 }
 
-.hidden {
-    display: none;
+.btn-border-light {
+    background-color: #eee;
+    border-radius: 5px;
+    border: 0;
+    color: var(--main-bg-color);
+    transition-duration: 0.5s;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.fadeout {
+    opacity: 0;
+    transition-duration: 0.5s;
+}
 
 .card {
     border: solid 1px var(--main-border-color);
     border-radius: 5px;
     padding: 1.5%;
     margin-bottom: 2.5%;
-    box-shadow: 10px 5px 5px #cccccc;
-
+    box-shadow: 10px 5px 5px #ccc;
 }
 
 .section-title {
@@ -411,27 +426,87 @@ p {
 }
 
 .courseCard {
+    width: 100%;
     list-style: none;
-    border: solid 1px var(--main-border-color);
-    border-radius: 15px;
-    padding: 1.5% 1% 5.5% 5%;
+    word-wrap: break-word;
+    border-bottom: solid 1px var(--main-border-color);
+    padding-bottom: 5%;
     margin-bottom: 5%;
+    float: left;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
 .courseCard img {
-    width: 100%;
+    width: 40%;
+    margin-right: 5%;
+    float: left;
 }
 
 .courseCardTitle {
-    width: 100%;
+    width: 50%;
+    margin: 0;
     float: left;
-    font-family: 'Roboto', sans-serif;
-    font-size: 125%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 90%;
+    font-weight: 600;
     color: var(--main-font-color);
-    margin-right: 0;
+
+}
+
+.courseCard p {
+    float:left;
+    font-size: 90%;
+    margin: 0;
+    line-height: 160%;
 }
 
 .courseCardPrice {
+    width: 30%;
+    border-right: solid 1px var(--main-border-color);
 
+}
+
+.courseCardDate {
+    width: 30%;
+    border-right: solid 1px var(--main-border-color);
+}
+
+.courseCardTime {
+    width: 20%;
+    text-align: right;
+}
+
+.courseCardDuration {
+    width: 20%;
+    text-align: right;
 }
 

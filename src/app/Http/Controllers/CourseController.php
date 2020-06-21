@@ -25,8 +25,9 @@ class CourseController extends Controller
     /**
      * Devuelve un json con las clases proximas a comenzar
      */
-    public function upcoming(){
-        $courses = Course::upcoming();
+    public function upcoming(Request $request){
+        $perPage = $request->get('perPage');
+        $courses = Course::upcoming($perPage);
         return $courses->toJson();
     }
 

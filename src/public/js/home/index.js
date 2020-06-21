@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+
+
+
+
+
+
     /* Logica para boton "definir link": toggle hidden del form -------------------------------*/
     let linkForms = document.querySelectorAll('form.set-link-form');
     for (var form of linkForms){

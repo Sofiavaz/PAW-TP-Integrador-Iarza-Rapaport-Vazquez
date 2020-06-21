@@ -48,7 +48,7 @@
                        required autocomplete="new-password" class="col-res-10">
             </p>
             <p class="row">
-                <button type="submit" class="btn btn-lg btn-block btn-border">
+                <button type="submit" class="btn btn-lg btn-block btn-blue">
                     {{ __('Register') }}
                 </button>
             <p>

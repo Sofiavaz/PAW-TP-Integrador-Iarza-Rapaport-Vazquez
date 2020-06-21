@@ -31,7 +31,7 @@
             </p>
 
             <p class="row">
-                <button type="submit" class="btn btn-lg btn-block btn-border">
+                <button type="submit" class="btn btn-lg btn-block btn-blue">
                     Iniciar sesión
                 </button>
             </p>
