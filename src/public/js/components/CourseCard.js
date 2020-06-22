@@ -1,11 +1,10 @@
-export default function CourseCard(id, title, date_time, short_descr, price, duration) {
+export default function CourseCard(course) {
 
     let li = document.createElement('li');
     let link = document.createElement('a');
-    link.href = "/courses/" + id;
+    link.href = "/courses/" + course.id;
     li.appendChild(link);
     li.classList.add('courseCard', 'w3-animate-top');
-
 
     let courseImg = document.createElement('img');
     // courseImg.src = img;
@@ -14,20 +13,24 @@ export default function CourseCard(id, title, date_time, short_descr, price, dur
     link.append(courseImg);
 
     let courseTitle = document.createElement('h4');
-    courseTitle.innerText = title;
+    courseTitle.innerText = course.name;
     courseTitle.classList.add('courseCardTitle');
     link.append(courseTitle);
 
     let courseDate = document.createElement('p');
-    courseDate.innerText = new Date(date_time).toLocaleDateString();
+    courseDate.innerText = new Date(course.date_time).toLocaleDateString();
     courseDate.classList.add('courseCardDate');
     link.append(courseDate);
 
+    let priceSpan = document.createElement('p');
+    priceSpan.innerText = "$" + course.price;
+    priceSpan.classList.add('courseCardPrice', 'text-success');
+    link.append(priceSpan);
+
     let courseTime = document.createElement('p');
-    courseTime.innerText = new Date(date_time).getHours() + ":" + new Date(date_time).getMinutes() + "hs";
+    courseTime.innerText = new Date(course.date_time).getHours() + ":" + new Date(course.date_time).getMinutes() + "hs";
     courseTime.classList.add('courseCardTime');
     link.append(courseTime);
-
 
     //
     // let courseTeacher = document.createElement('p');
@@ -35,13 +38,9 @@ export default function CourseCard(id, title, date_time, short_descr, price, dur
     // courseTeacher.classList.add('courseCardTeacher');
     // li.append(courseTeacher);
 
-    let priceSpan = document.createElement('p');
-    priceSpan.innerText = "$" + price;
-    priceSpan.classList.add('courseCardPrice');
-    link.append(priceSpan);
 
     let durationSpan = document.createElement('p');
-    durationSpan.innerText = duration + " mins";
+    durationSpan.innerText = course.duration_mins + " mins";
     durationSpan.classList.add('courseCardDuration');
     link.append(durationSpan);
 

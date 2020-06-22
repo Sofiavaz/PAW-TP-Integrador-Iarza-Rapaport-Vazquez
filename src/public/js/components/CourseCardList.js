@@ -1,6 +1,6 @@
 import CourseCard from "./CourseCard.js";
 
-export default function CourseCardList(baseUrl, list, buttonMore){
+export default function CourseCardList(baseUrl, list, buttonMore, courseCardType){
 
     let perPage;
 
@@ -24,8 +24,7 @@ export default function CourseCardList(baseUrl, list, buttonMore){
                 data = JSON.parse(this.responseText);
                 baseUrl = data.next_page_url + '&perPage=' + perPage;
                 data.data.forEach(function (e) {
-                    let courseCard =
-                        CourseCard(e.id, e.name, e.date_time, e.short_description, e.price, e.duration_mins);//, getTeacher(e.user_id));
+                    let courseCard = courseCardType(e);
                     list.append(courseCard);
                     return list;
                 });

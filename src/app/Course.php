@@ -61,9 +61,12 @@ class Course extends Model
             ->where('e.user_id', '=', Auth::id())->get();
     }
 
-    public static function asTeacher()
+
+
+    public static function scopeTeaching($query)
     {
-        return Course::all()->where('user_id', '=', Auth::id());
+        return $query->where('user_id', '=', Auth::id());
+//        return Course::all()->where('user_id', '=', Auth::id())->paginate();
     }
 
     public static function recommended($perPage)

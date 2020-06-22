@@ -24,8 +24,8 @@
     <nav class="navbar">
         <div class="row container">
             <section class="col-4">
-                <a class="navbar-logo" href="{{ url('/') }}">
-                    <p>Dashcourse</p>
+                <a href="{{ url('/') }}">
+                    <p class="logo">Dashcourse</p>
                 </a>
             </section>
             <section class="navbar-items col-6 text-right">
@@ -70,9 +70,14 @@
         @yield('content')
 
     </main>
-    <footer class="container text-center">
-         <h2>Dashcourse</h2>
-        <p>Encontrá las clases en vivo que buscás</p>
+    <footer class="text-center">
+        <section class="footer-info container">
+            <h2 class="logo">Dashcourse</h2>
+            <p>Encontrá las clases en vivo que buscás</p>
+        </section>
+        <section class="footer-copy">
+            <p>Dashcourse {{date('Y')}} - Todos los derechos reservados</p>
+        </section>
     </footer>
 </div>
 </body>

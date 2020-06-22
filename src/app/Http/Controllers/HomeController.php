@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -23,10 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $coursesAsStudent = Course::asStudent();
+        return view('home.index');
+    }
 
-        $coursesAsTeacher = Course::asTeacher();
-
-        return view('home.index', compact('coursesAsStudent', 'coursesAsTeacher'));
+    /**
+     * API call. Returns the courses the user is gonna teach
+     */
+    public function teaching(Request $request){
+        $perPage = $request->get('perPage');
+        return Course::teaching()->paginate($perPage);
     }
 }

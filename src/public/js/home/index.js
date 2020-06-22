@@ -1,25 +1,14 @@
+import CourseCardList from "../components/CourseCardList.js";
+import CourseCardForm from "../components/CourseCardForm.js";
+
 document.addEventListener("DOMContentLoaded", function(){
 
+    let url = '/api/courses/teaching';
 
+    let coursesList = document.getElementById('teaching-list');
 
+    let buttonMore = document.getElementById('button-more-teaching')
 
+    CourseCardList(url, coursesList, buttonMore, CourseCardForm);
 
-
-
-    /* Logica para boton "definir link": toggle hidden del form -------------------------------*/
-    let linkForms = document.querySelectorAll('form.set-link-form');
-    for (var form of linkForms){
-        form.classList.add('hidden');
-    }
-
-    let linkBtns = document.querySelectorAll('.set-link-btn');
-    linkBtns.forEach(function(linkBtn){
-        linkBtn.addEventListener('click', function(e){
-            let splitted = e.target.id.split('-');
-            let index = splitted[splitted.length - 1];
-            let form = document.getElementById("set-link-form-" + index);
-            form.classList.toggle('hidden');
-        });
-    })
-    /* Fin logica para boton "definir link" --------------------------------------------------*/
 })

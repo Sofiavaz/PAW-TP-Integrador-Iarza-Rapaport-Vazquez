@@ -51,12 +51,11 @@ input{
 }
 
 
-.navbar-logo p{
+.logo{
     color: var(--main-bg-color);
     font-size: 150%;
     font-weight: 800;
     margin-top: 1vh;
-
 }
 
 .navbar-items ul {
@@ -179,6 +178,16 @@ a {
 
 .text-danger {
     color: #e3342f;
+}
+
+.text-success {
+    color: #38c172;
+}
+
+.badge-success {
+    background-color: #38c172;
+    padding: 2px;
+    color: #fff;
 }
 
 .ml-1 {
@@ -390,6 +399,10 @@ a {
     visibility: hidden;
 }
 
+.d-none {
+    display: none;
+}
+
 .fadeout {
     opacity: 0;
     transition-duration: 0.5s;
@@ -479,7 +492,6 @@ p {
     font-size: 90%;
     font-weight: 600;
     color: var(--main-font-color);
-
 }
 
 .courseCard p {
@@ -490,23 +502,74 @@ p {
 }
 
 .courseCardPrice {
-    width: 30%;
-    border-right: solid 1px var(--main-border-color);
-
+    width: 25%;
+    text-align: right;
 }
 
 .courseCardDate {
-    width: 30%;
+    width: 25%;
     border-right: solid 1px var(--main-border-color);
 }
 
 .courseCardTime {
-    width: 20%;
-    text-align: right;
+    width: 25%;
+    border-right: solid 1px var(--main-border-color);
 }
 
 .courseCardDuration {
-    width: 20%;
+    width: 25%;
     text-align: right;
 }
 
+.courseCard form {
+    float: left;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    width: 87.5%;
+    margin: 20% 0 0 5%;
+    padding: 1vh 1vw 4vw 3vw;
+    border: solid 1px var(--main-border-color);
+    box-shadow: 2px 25px 85px var(--main-border-color);
+}
+
+.courseCard form input {
+    margin-right: 4vw;
+}
+
+.courseCard form label {
+    float:left;
+    width: 90%;
+    font-size: 90%;
+    color: var(--main-font-color);
+}
+
+.close-btn {
+    width: 8%;
+    text-align: right;
+    margin-right: 2vw;
+    padding-right: 2%;
+}
+
+.lbl-info {
+    float: left;
+    color: var(--main-bg-color);
+}
+
+
+.footer-info {
+    margin-top: 7vh;
+    padding: 3vh 0 3vh 0;
+    border-top: solid 1px var(--main-border-color);
+}
+
+.footer-copy {
+    background-color: var(--main-bg-color);
+}
+
+.footer-copy p{
+    font-size: 85%;
+    color: #fff;
+    padding: 5vw;
+    margin-bottom: 0;
+}
