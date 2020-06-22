@@ -486,6 +486,8 @@ p {
 
 .courseCardTitle {
     width: 50%;
+    overflow: hidden;
+    max-height: 40px;
     margin: 0;
     float: left;
     font-family: 'Open Sans', sans-serif;
