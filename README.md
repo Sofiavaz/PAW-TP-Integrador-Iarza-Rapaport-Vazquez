@@ -15,6 +15,8 @@ Con esta propuesta queremos brindarle a la comunidad de distintos rangos de edad
 
 ## Entregas del Trabajo Final
 [PrimeraEntrega](1ºEntrega/Primera.md)
+[SegundaEntrega](2ºEntrega/README.md)
+
 
 ## Integrantes
 Sofia Gimena Vázquez, Esteban Iarza y Mariano Rapaport.
