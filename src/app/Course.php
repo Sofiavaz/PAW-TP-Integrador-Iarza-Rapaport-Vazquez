@@ -55,17 +55,23 @@ class Course extends Model
         }
     }
 
-    public static function asStudent()
-    {
-        return Course::query()->join('enrollments as e', 'e.course_id', '=', 'courses.id')
-            ->where('e.user_id', '=', Auth::id())->get();
-    }
-
+//    public static function asStudent()
+//    {
+//        return Course::query()->join('enrollments as e', 'e.course_id', '=', 'courses.id')
+//            ->where('e.user_id', '=', Auth::id())->get();
+//    }
 
 
     public static function scopeTeaching($query)
     {
         return $query->where('user_id', '=', Auth::id());
+//        return Course::all()->where('user_id', '=', Auth::id())->paginate();
+    }
+
+    public static function scopeTaking($query)
+    {
+        return $query->join('enrollments as e', 'e.course_id', '=', 'courses.id')
+            ->where('e.user_id', '=', Auth::id());
 //        return Course::all()->where('user_id', '=', Auth::id())->paginate();
     }
 

@@ -13,7 +13,7 @@
         @endif
 
 
-        <form method="POST" action="{{ route('login') }}" class="offset-4 col-res-2">
+        <form method="POST" action="{{ route('login') }}" class="offset-res-4 col-res-2">
             @csrf
             <p class="row">
                 <label for="email" class="col-res-10">{{ __('E-Mail Address') }}</label>

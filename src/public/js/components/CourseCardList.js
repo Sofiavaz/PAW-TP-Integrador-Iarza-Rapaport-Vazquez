@@ -15,6 +15,7 @@ export default function CourseCardList(baseUrl, list, buttonMore, courseCardType
     getCourses();
 
     let data;
+    let firstRequest = true;
 
     // Separo en funcion para hacerlo por auto scroll si se puede
     function getCourses() {
@@ -23,11 +24,20 @@ export default function CourseCardList(baseUrl, list, buttonMore, courseCardType
             if (this.readyState == 4 && this.status == 200) {
                 data = JSON.parse(this.responseText);
                 baseUrl = data.next_page_url + '&perPage=' + perPage;
-                data.data.forEach(function (e) {
-                    let courseCard = courseCardType(e);
-                    list.append(courseCard);
-                    return list;
-                });
+                if (data.data.length > 0) {
+                    if (firstRequest) {
+                        list.innerText = "";
+                        firstRequest = false;
+                    }
+                    data.data.forEach(function (e) {
+                        let courseCard = courseCardType(e);
+                        list.append(courseCard);
+                        return list;
+                    });
+                }
+                else {
+                    buttonMore.classList.add('fadeout');
+                }
             }
         }
         // };

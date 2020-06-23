@@ -35,4 +35,12 @@ class HomeController extends Controller
         $perPage = $request->get('perPage');
         return Course::teaching()->paginate($perPage);
     }
+
+    /**
+     * API call. Returns the courses the user is gonna take
+     */
+    public function taking(Request $request){
+        $perPage = $request->get('perPage');
+        return Course::taking()->paginate($perPage);
+    }
 }

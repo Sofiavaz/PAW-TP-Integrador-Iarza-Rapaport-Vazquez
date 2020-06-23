@@ -4,7 +4,7 @@
     <section class="container">
         <h2 class="text-center info-title">¡Creá tu cuenta en Dashcourse!</h2>
 
-        <form method="POST" action="{{ route('register') }}" class="offset-4 col-res-2">
+        <form method="POST" action="{{ route('register') }}" class="offset-res-4 col-res-2">
             @csrf
             <p class="row">
                 <label for="name" class="col-res-10">{{ __('Name') }}</label>

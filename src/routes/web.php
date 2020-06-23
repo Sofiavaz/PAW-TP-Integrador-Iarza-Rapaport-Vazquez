@@ -15,4 +15,5 @@ Route::resource('/courses', 'CourseController');
 Route::post('/courses/link/define', 'CourseController@defineLink')->name('courses.defineLink');
 
 Route::get('api/courses/teaching', 'HomeController@teaching')->name('api.courses.teaching');
+Route::get('api/courses/taking', 'HomeController@taking')->name('api.courses.taking');
 Route::get('Http/Controllers/Payment/Mercadop/{id}', 'MercadopController@config')->name('Mercadop.config');
