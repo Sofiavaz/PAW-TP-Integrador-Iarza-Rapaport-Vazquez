@@ -31,9 +31,7 @@
             </p>
 
             <p class="row">
-                <button type="submit" class="btn btn-lg btn-block btn-blue">
-                    Iniciar sesión
-                </button>
+                <input type="submit" class="btn btn-block btn-blue text-sm" value="Iniciar sesión"/>
             </p>
 
             <p class="row text-center">

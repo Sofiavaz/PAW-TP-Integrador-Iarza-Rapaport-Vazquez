@@ -6,7 +6,7 @@
 
 @section('content')
     <section>
-        <section class="container">
+        <section class="container container-border-down">
             @if (session('message'))
                 <p>{{session('message')}}</p>
             @endif
@@ -18,10 +18,12 @@
                 <button id="button-more-teaching" class="btn btn-lg btn-border-light">Ver más</button>
             </div>
 
-            <h2 class="section-title">Clases en las que te inscribiste</h2>
+            <h2 class="info-title">Clases en las que te inscribiste</h2>
             <ul id="taking-list">
             </ul>
         </section>
+
+
 
         @include('partials.recommended_courses')
         @include('partials.upcoming_courses')

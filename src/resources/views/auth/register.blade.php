@@ -48,9 +48,9 @@
                        required autocomplete="new-password" class="col-res-10">
             </p>
             <p class="row">
-                <button type="submit" class="btn btn-lg btn-block btn-blue">
-                    {{ __('Register') }}
-                </button>
+                <input type="submit" class="btn text-sm btn-block btn-blue" value="{{ __('Register') }}"/>
+
+
             <p>
             <p class="row text-center">
                 ¿Ya tenés una cuenta?
