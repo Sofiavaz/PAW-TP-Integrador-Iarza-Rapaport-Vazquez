@@ -14,9 +14,9 @@ Con esta propuesta queremos brindarle a la comunidad de distintos rangos de edad
 ---
 
 ## Entregas del Trabajo Final
-[PrimeraEntrega](1ºEntrega/Primera.md) 
+- [PrimeraEntrega](1ºEntrega/Primera.md) 
 
-[SegundaEntrega](2ºEntrega/Segunda.md)
+- [SegundaEntrega](2ºEntrega/src/Segunda.md)
 
 
 ## Integrantes
