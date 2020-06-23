@@ -17,15 +17,13 @@
                     <p>${{$course->price}}</p>
                     <p>{{$course->date_time}}</p>
                     <p>Lugares: {{$course->duration_mins}}</p>
-                    <a href="{{route('enrollment.enroll', $course->id)}}" class="btn btn-border-blue">Inscribirse</a>
+                    <a href="{{route('Mercadop.config', $course->id)}}" class="btn btn-border-blue">Inscribirse</a>
                 </div>
             </div>
 
             <h4>¿Qué vas a aprender?</h4>
             <p>{{$course->long_description}}</p>
         </div>
-
-
     </section>
 
     @include('partials.how_does_it_work_students')

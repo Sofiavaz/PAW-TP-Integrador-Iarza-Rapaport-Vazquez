@@ -12,6 +12,6 @@ class EnrollmentController extends Controller
     }
 
     public function enroll($courseId){
-        return "Checkout de MP";
+        return "CP";
     }
 }
