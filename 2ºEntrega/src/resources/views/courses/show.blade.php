@@ -17,7 +17,14 @@
                     <p>${{$course->price}}</p>
                     <p>{{$course->date_time}}</p>
                     <p>Lugares: {{$course->duration_mins}}</p>
-                    <a href="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" class="btn btn-border-blue">Inscribirse</a>
+{{--                    <a href="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" class="btn btn-border-blue">Inscribirse</a>--}}
+                    <form action="/procesar-pago" method="POST">
+                        <script
+                            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                            data-preference-id="{{$preference->id}}">
+                        </script>
+                    </form>
+
                 </div>
             </div>
 

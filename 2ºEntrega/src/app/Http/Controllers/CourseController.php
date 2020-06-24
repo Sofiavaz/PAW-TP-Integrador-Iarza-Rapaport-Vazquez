@@ -7,6 +7,9 @@ use App\Http\Requests\StoreCourse;
 use App\Platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use MercadoPago\Item;
+use MercadoPago\Preference;
+use MercadoPago\SDK;
 
 class CourseController extends Controller
 {
@@ -87,7 +90,22 @@ class CourseController extends Controller
         //
         $course = Course::findOrFail($id);
 
-        return view('courses.show')->with('course', $course);
+        // Agrega credenciales
+        SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+
+        // Crea un objeto de preferencia
+        $preference = new Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new Item();
+        $item->title = $course->name;
+        $item->quantity = 1;
+        $item->unit_price = $course->price;
+        $item->unit_price = 'ARS';
+        $preference->items = array($item);
+        $preference->save();
+
+        return view('courses.show')->with('course', $course)->with('preference', $preference);
     }
 
     /**
