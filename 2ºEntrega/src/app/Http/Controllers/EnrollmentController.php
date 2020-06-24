@@ -12,6 +12,6 @@ class EnrollmentController extends Controller
     }
 
     public function enroll($courseId){
-        return "CP";
+        return redirect()->route('courses.show', $courseId)->with('status', 'ready-for-payment');
     }
 }

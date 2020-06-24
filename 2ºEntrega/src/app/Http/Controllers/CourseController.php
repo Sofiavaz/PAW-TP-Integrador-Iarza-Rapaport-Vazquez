@@ -101,7 +101,7 @@ class CourseController extends Controller
         $item->title = $course->name;
         $item->quantity = 1;
         $item->unit_price = $course->price;
-        $item->unit_price = 'ARS';
+        $item->currency_id = 'ARS';
         $preference->items = array($item);
         $preference->save();
 

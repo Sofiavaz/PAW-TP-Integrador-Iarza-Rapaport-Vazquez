@@ -2,6 +2,21 @@
 
 @section('content')
     <section>
+        @if (session('status') == 'ready-for-payment')
+        <section>
+
+            <p>{{$course->name}}</p>
+            <p>{{$course->price}}</p>
+
+            <form action="/procesar-pago" method="POST">
+                <script
+                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="{{$preference->id}}">
+                </script>
+            </form>
+
+        </section>
+        @endif
         <div class="card">
             <div class="row">
                 <div class="col-res-2">
@@ -17,14 +32,7 @@
                     <p>${{$course->price}}</p>
                     <p>{{$course->date_time}}</p>
                     <p>Lugares: {{$course->duration_mins}}</p>
-{{--                    <a href="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" class="btn btn-border-blue">Inscribirse</a>--}}
-                    <form action="/procesar-pago" method="POST">
-                        <script
-                            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                            data-preference-id="{{$preference->id}}">
-                        </script>
-                    </form>
-
+                    <a href="{{route('enrollments.enroll', $course->id)}}" class="btn btn-blue">Inscribirse</a>
                 </div>
             </div>
 

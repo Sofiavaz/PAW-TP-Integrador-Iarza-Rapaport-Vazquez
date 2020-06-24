@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class RedirectIfAuthenticated
 {
@@ -23,5 +24,6 @@ class RedirectIfAuthenticated
         }
 
         return $next($request);
+
     }
 }
