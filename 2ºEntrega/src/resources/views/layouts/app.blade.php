@@ -6,6 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="storage" content="{{ storage_path() }}">
 
     <title>Dashcourse - Cartelera de clases en vivo</title>
 
@@ -15,8 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0f96c4e7ac.js" crossorigin="anonymous"></script>
+
     @yield('scripts')
 </head>
 <body>

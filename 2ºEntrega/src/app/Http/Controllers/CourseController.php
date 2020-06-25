@@ -7,6 +7,8 @@ use App\Http\Requests\StoreCourse;
 use App\Platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use MercadoPago\Item;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
@@ -69,6 +71,14 @@ class CourseController extends Controller
         $course->fill($request->all('name', 'date_time', 'short_description', 'long_description', 'duration_mins',
             'max_enrollments', 'price', 'access_link'));
 
+        $courseImg = $request->file('course_img');
+
+        $extension = $courseImg->getClientOriginalExtension();
+
+        Storage::disk('public')->put($courseImg->getFilename(). '.'.$extension, File::get($courseImg));
+
+        $course->img_path = $courseImg->getFilename().'.'.$extension;
+
         $platform = Platform::name($request->get('platform_name'));
         if (!is_null($platform))
             $course->platform()->associate($platform);
@@ -82,30 +92,21 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Course  $course
+     * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
         //
-        $course = Course::findOrFail($id);
+        if (!Auth::check()) {
+            $course = Course::findOrFail($id);
 
-        // Agrega credenciales
-        SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+            $course->free_spots = $course->max_enrollments; // TODO Calcular lugares libres
 
-        // Crea un objeto de preferencia
-        $preference = new Preference();
-
-        // Crea un ítem en la preferencia
-        $item = new Item();
-        $item->title = $course->name;
-        $item->quantity = 1;
-        $item->unit_price = $course->price;
-        $item->currency_id = 'ARS';
-        $preference->items = array($item);
-        $preference->save();
-
-        return view('courses.show')->with('course', $course)->with('preference', $preference);
+            return view('courses.show')->with('course', $course);
+        }
+        else
+            return redirect()->route('enrollments.enroll', $id);
     }
 
     /**

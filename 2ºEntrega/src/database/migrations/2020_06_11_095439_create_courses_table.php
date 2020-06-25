@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->dateTime('date_time');
             $table->string('short_description');
             $table->text('long_description')->nullable(true);
+            $table->string('img_path');
             $table->smallInteger('max_enrollments');
             $table->decimal('price', 8, 2);
             $table->integer('duration_mins');

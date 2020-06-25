@@ -29,26 +29,31 @@ class StoreCourse extends FormRequest
             'short_description' => 'required|max:255',
             'max_enrollments' => 'required|integer|min:0',
             'duration_mins' => 'required|numeric|min:0',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric|min:0',
+            'course_img'=> 'required||mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'El nombre de la clase es obligatorio.',
+            'required' => 'Campo obligatorio',
+//            'name.required' => 'El nombre de la clase es obligatorio.',
             'name.max' => 'El nombre de la clase no puede superar los 255 caracteres.',
-            'date_time.required'  => 'La fecha y hora en que dará la clase, son obligatorias.',
+//            'date_time.required'  => 'La fecha y hora son obligatorias.',
             'date_time.date' => 'La fecha y hora de la clase deben ser válidas.',
-            'short_description.required' => 'Una breve descripción de la clase es obligatoria',
-            'max_enrollments.required' => 'La cantidad máxima de participantes es obligatoria.',
+//            'short_description.required' => 'Una breve descripción de la clase es obligatoria',
+//            'max_enrollments.required' => 'La cantidad máxima de participantes es obligatoria.',
             'max_enrollments.integer' => 'La cantidad máxima de participantes debe ser un número entero.',
             'max_enrollments.min' => 'La cantidad máxima de participantes debe ser mayor a 0.',
-            'duration_mins.required' => 'La duración de la clase es obligatoria.',
+//            'duration_mins.required' => 'La duración de la clase es obligatoria.',
             'duration_mins.numeric' => 'La duración de la clase debe ser un número válido.',
             'duration_mins.min' => 'La duración de la clase debe ser mayor que 0.',
-            'price.required' => 'El precio de la clase es obligatorio.',
-            'price.min' => 'El precio de la clase puede ser 0 (si es gratis) o un número mayor (si tiene costo).'
+//            'price.required' => 'El precio de la clase es obligatorio.',
+            'price.min' => 'El precio de la clase puede ser 0 (si es gratis) o un número mayor (si tiene costo).',
+//            'img.required' => 'La imagen es obligatoria.',
+            'img.image' => 'La imagen debe tener un formato válido(jpeg, png, bmp, gif, svg, o webp).',
+            'img.max' => 'La imagen debe tener un tamaño máximo de 2048KB'
         ];
     }
 }

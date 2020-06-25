@@ -2,43 +2,67 @@
 
 @section('content')
     <section>
-        @if (session('status') == 'ready-for-payment')
-        <section>
 
-            <p>{{$course->name}}</p>
-            <p>{{$course->price}}</p>
+        @if (isset($preference))
+            <section class="ready-for-payment">
+                <p class="course-view-price-spots">
+                    <span class="course-view-price">${{$course->price}}</span>
+                    <span class="course-view-spots">{{$course->free_spots}} lugares disponibles</span>
+                </p>
 
-            <form action="/procesar-pago" method="POST">
-                <script
-                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                    data-preference-id="{{$preference->id}}">
-                </script>
-            </form>
-
-        </section>
+                <form action="/procesar-pago" method="POST" class="form-payment">
+                    <script
+                        src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                        data-preference-id="{{$preference->id}}">
+                    </script>
+                </form>
+            </section>
         @endif
-        <div class="card">
-            <div class="row">
-                <div class="col-res-2">
-                    <img style="width: 13vw"
-                         src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201811/online-3412473_1920_1.jpeg?tz.RfsTe_UTLHiDqxmpG7PY_nTIBjwF7">
-                </div>
-                <div class="col-res-6">
-                    <p>{{$course->name}} | {{$course->platform->name}}</p>
-                    <p>{{$course->teacher->name}}</p>
-                    <p>{{$course->short_description}}</p>
-                </div>
-                <div class="col-res-2 text-right">
-                    <p>${{$course->price}}</p>
-                    <p>{{$course->date_time}}</p>
-                    <p>Lugares: {{$course->duration_mins}}</p>
-                    <a href="{{route('enrollments.enroll', $course->id)}}" class="btn btn-blue">Inscribirse</a>
-                </div>
-            </div>
+        <section class="course-view">
 
-            <h4>¿Qué vas a aprender?</h4>
-            <p>{{$course->long_description}}</p>
-        </div>
+            <img src="/uploads/{{$course->img_path}}">
+
+            <section class="container">
+                <h3>{{$course->name}}</h3>
+                <p class="clock-icon course-info-duration">{{$course->duration_mins}} minutos</p>
+                <p class="course-view-description">{{$course->short_description}}</p>
+
+                <section class="course-view-info">
+                    <p class="course-info-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        {{$course->teacher->name}}
+                    </p>
+
+                    <p class="course-info-date">
+                        <i class="far fa-calendar-alt"></i>
+                        {{date("d-M", strtotime($course->date_time))}}
+                    </p>
+
+                    <p class="course-info-time">
+                        <i class="far fa-clock"></i>
+                        {{date("H:i", strtotime($course->date_time))}} hs
+                    </p>
+
+                    <p class="course-info-platform">
+                        <i class="fas fa-sign-out-alt"></i>
+                        {{$course->platform->name}}
+                    </p>
+                </section>
+                <p class="course-view-price-spots">
+                    <span class="course-view-price">${{$course->price}}</span>
+                    <span class="course-view-spots">{{$course->free_spots}} lugares disponibles</span>
+                </p>
+                <p class="course-view-btn">
+                    <a href="{{route('enrollments.enroll', $course->id)}}"
+                       class="btn btn-blue  btn-lg">Inscribirse</a>
+                </p>
+
+                <section class="course-view-learn">
+                    <h4>¿Qué vas a aprender en esta clase?</h4>
+                    <p>{{$course->long_description}}</p>
+                </section>
+            </section>
+        </section>
     </section>
 
     @include('partials.how_does_it_work_students')
