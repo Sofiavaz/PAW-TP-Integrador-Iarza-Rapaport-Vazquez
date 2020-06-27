@@ -98,8 +98,9 @@ class CourseController extends Controller
     public function show($id)
     {
         //
-        if (!Auth::check()) {
-            $course = Course::findOrFail($id);
+        $course = Course::findOrFail($id);
+
+        if (!Auth::check() || $course->teacher == Auth::user() || $course->attends(Auth::user())) {
 
             $course->free_spots = $course->max_enrollments; // TODO Calcular lugares libres
 

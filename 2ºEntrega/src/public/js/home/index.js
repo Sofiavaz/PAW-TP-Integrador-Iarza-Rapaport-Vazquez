@@ -1,6 +1,6 @@
-import CourseCard from "../components/CourseCard.js";
 import CourseCardList from "../components/CourseCardList.js";
 import CourseCardForm from "../components/CourseCardForm.js";
+import CourseCardTaking from "../components/CourseCardTaking.js";
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", function(){
     let urlTaking = 'api/courses/taking';
     let takingList = document.getElementById('taking-list');
     let buttonMoreTaking = document.getElementById('button-more-taking');
-    CourseCardList(urlTaking, takingList, buttonMoreTaking, CourseCard);
+    CourseCardList(urlTaking, takingList, buttonMoreTaking, CourseCardTaking);
 })

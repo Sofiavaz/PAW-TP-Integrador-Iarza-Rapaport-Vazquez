@@ -16,6 +16,11 @@ Route::post('/courses/link/define', 'CourseController@defineLink')->name('course
 
 Route::get('api/courses/teaching', 'HomeController@teaching')->name('api.courses.teaching');
 Route::get('api/courses/taking', 'HomeController@taking')->name('api.courses.taking');
-Route::get('Http/Controllers/Payment/Mercadop/{id}', 'MercadopController@prueba')->name('Mercadop.prueba');
+Route::get('api/courses/upcoming', 'CourseController@upcoming')->name('api.courses.upcoming');
+Route::get('api/courses/recommended', 'CourseController@recommended')->name('api.courses.recommended');
 
+Route::get('/enrollments/successful', 'EnrollmentController@paymentSuccessful')->name('enrollments.successful');
+Route::get('/enrollments/failure', 'EnrollmentController@paymentFailure')->name('enrollments.failure');
+Route::get('/enrollments/pending', 'EnrollmentController@paymentPending')->name('enrollments.pending');
 Route::get('/enrollments/{id}', 'EnrollmentController@enroll')->name('enrollments.enroll');
+

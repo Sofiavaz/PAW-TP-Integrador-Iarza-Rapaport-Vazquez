@@ -1,5 +1,3 @@
-import CourseCard from "./CourseCard.js";
-
 export default function CourseCardList(baseUrl, list, buttonMore, courseCardType){
 
     let perPage;

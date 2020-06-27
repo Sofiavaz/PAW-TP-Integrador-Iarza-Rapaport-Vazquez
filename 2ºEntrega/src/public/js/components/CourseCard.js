@@ -21,10 +21,10 @@ export default function CourseCard(course) {
     courseDate.classList.add('courseCardDate');
     link.append(courseDate);
 
-    let priceSpan = document.createElement('p');
-    priceSpan.innerText = "$" + course.price;
-    priceSpan.classList.add('courseCardPrice', 'text-success');
-    link.append(priceSpan);
+    let price = document.createElement('p');
+    price.innerText = "$" + course.price;
+    price.classList.add('courseCardPrice', 'text-success');
+    link.append(price);
 
     let courseTime = document.createElement('p');
     courseTime.innerText = new Date(course.date_time).getHours() + ":" + new Date(course.date_time).getMinutes() + "hs";

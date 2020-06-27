@@ -46,22 +46,22 @@
                         @endif
                     @else
                         <li>
-                            <a href="{{route('home')}}" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false" v-pre>
-                                Home
-                            </a>
+                            <a href="{{route('courses.index')}}">Explorar</a>
                         </li>
                         <li>
-                            <a href="{{ route('logout') }}" class="ml-2"
-                               onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                            <a href="{{route('home')}}" class="ml-3">Home</a>
+                        </li>
+                        <li>
+{{--                            <a href="{{ route('logout') }}" class="ml-2"--}}
+{{--                               onclick="event.preventDefault();--}}
+{{--                                                 document.getElementById('logout-form').submit();">--}}
+{{--                                {{ __('Logout') }}--}}
+{{--                            </a>--}}
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
+{{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
+{{--                                  style="display: none;">--}}
+{{--                                @csrf--}}
+{{--                            </form>--}}
                         </li>
                     @endguest
                 </ul>

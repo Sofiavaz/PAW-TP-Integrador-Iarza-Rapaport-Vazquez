@@ -17,7 +17,8 @@ class CreateEnrollmentsTable extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('student_payment')->constrained('payments');
+            $table->string('preference_id');
+//            $table->foreignId('student_payment')->constrained('payments');
             $table->timestamps();
         });
     }
