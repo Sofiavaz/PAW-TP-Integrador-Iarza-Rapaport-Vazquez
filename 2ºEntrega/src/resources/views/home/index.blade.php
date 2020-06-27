@@ -11,9 +11,10 @@
                 <p>{{session('message')}}</p>
             @endif
 
-            <h2 class="info-title">Clases que vas a dar</h2>
-            <a class="button-info-title btn btn-blue" href="{{route('courses.create')}}">Nueva</a>
-            <ul id="teaching-list">
+            <h2 class="info-title">Clases que vas a dar <a class="btn btn-blue btn-sm float-right"
+                                                           href="{{route('courses.create')}}">Nueva</a></h2>
+
+            <ul id="teaching-list" class="container">
                 <li class="text-center">Ups... ¡todavía no tenés clases para dar!
                     <a class="text-main" href="{{route('courses.create')}}">Creá una</a></li>
             </ul>
@@ -22,7 +23,7 @@
             </div>
 
             <h2 class="info-title">Clases en las que te inscribiste</h2>
-            <ul id="taking-list">
+            <ul id="taking-list" class="container">
                 <li class="text-center">Ups... ¡Todavía no asistís a ninguna clase!
                     <a class="text-main" href="{{route('courses.index')}}">Explorá</a></li>
             </ul>

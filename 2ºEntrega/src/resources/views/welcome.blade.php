@@ -4,7 +4,7 @@
     <section class="cover">
         <div class="cover-body container">
             <h1>Cartelera de clases en vivo</h1>
-            <div class="col-res-3">
+            <div class="col-res-4">
                 <h2>Explorás clases en vivo. Te inscribís. Recibís los datos para poder asistir.</h2>
             </div>
             <p class="row">

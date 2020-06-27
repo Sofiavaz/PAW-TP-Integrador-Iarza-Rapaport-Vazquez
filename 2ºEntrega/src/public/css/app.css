@@ -79,6 +79,7 @@ form input {
     top: 0;
     border-top: solid 3px var(--main-bg-color);
     border-bottom: solid 1px var(--main-border-color);
+    z-index: 2;
 }
 
 
@@ -136,6 +137,14 @@ a {
     font-weight: 400;
     width: 95%;
     padding-bottom: 2.5%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
 
 .col-1 {
@@ -425,24 +434,6 @@ a {
         float: left;
     }
 
-    .container {
-        width: 75%;
-        margin-left: 12.5%;
-        overflow: hidden;
-    }
-
-    .navbar {
-        height: 6vh;
-    }
-
-    .navbar-items {
-        visibility: visible;
-        margin-top: 0;
-    }
-
-    .navbar-items li {
-        display: inline;
-    }
 }
 
 
@@ -452,12 +443,19 @@ a {
     border-radius: 5px;
     margin: 0;
     font-size: 80%;
+    vertical-align: center;
 }
 
 .btn-lg {
-    padding: 3vw;
+    padding: 10px;
     font-size: 90%;
     font-weight: 500;
+}
+
+.btn-sm {
+    padding: 3px 6px 4px 6px ;
+    font-size: 75%;
+    font-weight: 100;
 }
 
 .btn-block {
@@ -549,7 +547,7 @@ a {
     position: absolute;
     margin-top: -50px;
     text-align: right;
-    z-index: -1;
+
 }
 
 /* Info message */
@@ -602,7 +600,7 @@ a {
 
 /* Coursecard */
 
-.courseCard {
+.course-card {
     width: 100%;
     height: 115px;
     word-wrap: break-word;
@@ -659,14 +657,14 @@ a {
 }
 
 
-.courseCard img {
+.course-card img {
     width: 40%;
     height: 100%;
     margin-right: 5%;
     float: left;
 }
 
-.courseCardTitle {
+.course-card-title {
     width: 50%;
     overflow: hidden;
     max-height: 40px;
@@ -678,34 +676,34 @@ a {
     color: var(--main-bg-color-dark);
 }
 
-.courseCard p {
+.course-card p {
     float: left;
     font-size: 90%;
     margin: 0;
     line-height: 160%;
 }
 
-.courseCardPrice {
+.course-card-price {
     width: 25%;
     text-align: right;
 }
 
-.courseCardDate {
+.course-card-date {
     width: 25%;
     border-right: solid 1px var(--main-border-color);
 }
 
-.courseCardTime {
+.course-card-time {
     width: 25%;
     border-right: solid 1px var(--main-border-color);
 }
 
-.courseCardDuration {
+.course-card-duration {
     width: 25%;
     text-align: right;
 }
 
-.courseCard form {
+.course-card form {
     float: left;
     position: absolute;
     background-color: #fff;
@@ -717,19 +715,19 @@ a {
     box-shadow: 2px 25px 85px var(--main-border-color);
 }
 
-.courseCard form input {
+.course-card form input {
     margin-top: 0.5vh;
     width: 97%;
     margin-left: 1%;
 }
 
-.courseCard .btn {
+.course-card .btn {
     margin-top: 2vh;
     width: 30%;
     margin-left: 35%;
 }
 
-.courseCard form label {
+.course-card form label {
     float: left;
     width: 90%;
     font-size: 90%;
@@ -957,4 +955,101 @@ button.mercadopago-button {
     color: #fff;
     padding: 5vw;
     margin-bottom: 0;
+}
+
+@media (min-width: 550px) {
+
+    body {
+        font-size: 17px;
+    }
+
+
+    .course-card {
+        width: 85%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        height: 120px;
+    }
+
+}
+
+@media (min-width: 650px) {
+    body {
+        font-size: 18px;
+    }
+
+
+    .course-card-title {
+        max-height: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    body {
+        font-size: 19px;
+    }
+
+    .container {
+        width: 75%;
+        margin-left: 12.5%;
+        overflow: hidden;
+    }
+
+    .cover {
+        height: 35vh;
+    }
+
+}
+
+@media (min-width: 950px) {
+    .container {
+        width: 75%;
+        margin-left: 12.5%;
+    }
+
+}
+
+
+@media (min-width: 1050px) {
+    .container {
+        width: 65%;
+        margin-left: 17.5%;
+    }
+
+    .cover-body {
+        padding: 2.5%;
+    }
+}
+
+@media (min-width: 1150px) {
+    .container {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .course-card-title {
+        max-height: 50px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .container {
+        width: 57.5%;
+        margin-left: 21.25%;
+    }
+
+    .course-card {
+        height: 130px;
+    }
+
+
+
+}
+
+@media (min-width: 1650px) {
+    .container {
+        width: 55%;
+        margin-left: 22.5%;
+    }
 }
