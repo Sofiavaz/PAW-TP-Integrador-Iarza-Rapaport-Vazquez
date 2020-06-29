@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0f96c4e7ac.js" crossorigin="anonymous"></script>
 
+
     @yield('scripts')
 </head>
 <body>
@@ -52,16 +53,16 @@
                             <a href="{{route('home')}}" class="ml-3">Home</a>
                         </li>
                         <li>
-{{--                            <a href="{{ route('logout') }}" class="ml-2"--}}
-{{--                               onclick="event.preventDefault();--}}
-{{--                                                 document.getElementById('logout-form').submit();">--}}
-{{--                                {{ __('Logout') }}--}}
-{{--                            </a>--}}
+                            <a href="{{ route('logout') }}" class="ml-2 mobile-hidden"
+                               onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-{{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
-{{--                                  style="display: none;">--}}
-{{--                                @csrf--}}
-{{--                            </form>--}}
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     @endguest
                 </ul>

@@ -21,7 +21,13 @@ export default function CourseCardList(baseUrl, list, buttonMore, courseCardType
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 data = JSON.parse(this.responseText);
-                baseUrl = data.next_page_url + '&perPage=' + perPage;
+                if (data.next_page_url != null) {
+                    baseUrl = data.next_page_url + '&perPage=' + perPage;
+                }
+                else {
+                    baseUrl = null;
+                }
+
                 if (data.data.length > 0) {
                     if (firstRequest) {
                         list.innerText = "";
@@ -39,14 +45,26 @@ export default function CourseCardList(baseUrl, list, buttonMore, courseCardType
             }
         }
         // };
-        xhttp.open("GET", baseUrl, true);
-        xhttp.send();
+        if (baseUrl != null){
+            xhttp.open("GET", baseUrl, true);
+            xhttp.send();
+        }
     }
 
     buttonMore.addEventListener('click', function () {
-        if (baseUrl.indexOf(data.last_page_url) !== -1) {
+        if (baseUrl == null || baseUrl.indexOf(data.last_page_url) !== -1) {
             // setTimeout(function () {
-            buttonMore.classList.add('fadeout')
+            buttonMore.classList.add('fadeout');
+            setTimeout(function() {
+                buttonMore.classList.add('d-none');
+
+                let noMoreCourses = document.createElement('p');
+                noMoreCourses.classList.add('float-left', 'w-100');
+                noMoreCourses.innerText = "No hay más clases por ahora!";
+
+                buttonMore.insertAdjacentElement('afterend', noMoreCourses);
+
+            }, 1000);
         }
         getCourses();
 

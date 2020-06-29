@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let buttonMore = document.getElementById('button-more-recommended')
 
+
     CourseCardList(url, coursesList, buttonMore, CourseCard);
 
 });

@@ -16,13 +16,13 @@
         @endif
 
         @if (isset($preference))
-            <section class="ready-for-payment">
+            <section class="ready-for-payment col-res-6 offset-res-2">
                 <p class="course-view-price-spots">
                     <span class="course-view-price">${{$course->price}}</span>
                     <span class="course-view-spots">{{$course->free_spots}} lugares libres</span>
                 </p>
 
-                <form action="/procesar-pago" method="POST" class="form-payment" >
+                <form action="/procesar-pago" method="POST" class="form-payment">
                     <script
                         src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
                         data-preference-id="{{$preference->id}}"

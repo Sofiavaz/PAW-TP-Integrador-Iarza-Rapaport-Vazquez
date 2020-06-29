@@ -52,7 +52,7 @@ class Course extends Model
 //        else
 //        {
             return Course::query()->where('courses.date_time', '>', now())
-                ->select('courses.name', 'courses.img_path', 'courses.date_time', 'courses.short_description',
+                ->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time', 'courses.short_description',
                 'courses.long_description', 'courses.max_enrollments', 'courses.price', 'courses.duration_mins',
                 'courses.platform_id')
                 ->paginate($perPage);
@@ -83,7 +83,7 @@ class Course extends Model
 //                ->paginate($perPage);
 //        }
 //        else {
-            return Course::query()->select('courses.name', 'courses.img_path', 'courses.date_time',
+            return Course::query()->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
                 'courses.short_description','courses.long_description', 'courses.max_enrollments',
                 'courses.price', 'courses.duration_mins', 'courses.platform_id')
             ->paginate($perPage);

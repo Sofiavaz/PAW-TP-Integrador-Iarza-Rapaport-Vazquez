@@ -8,7 +8,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        <form method="POST" action="{{ route('password.email') }}">
+        <form method="POST" action="{{ route('password.email') }}" class="offset-res-3 col-res-4">
             @csrf
             <p class="row">
                 <label for="email" class="">{{ __('E-Mail Address') }}</label>

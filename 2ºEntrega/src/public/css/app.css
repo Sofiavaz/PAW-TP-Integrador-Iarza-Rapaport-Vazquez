@@ -34,7 +34,7 @@ li {
     list-style: none;
 }
 
-input, textarea, select{
+input, textarea, select {
     box-sizing: border-box;
     border-radius: 5px;
     border: solid 1px var(--main-border-color);
@@ -446,6 +446,7 @@ a {
 .btn {
     cursor: pointer;
     padding: 5px;
+    border: none;
     border-radius: 5px;
     margin: 0;
     font-size: 80%;
@@ -459,7 +460,7 @@ a {
 }
 
 .btn-sm {
-    padding: 3px 6px 4px 6px ;
+    padding: 3px 6px 4px 6px;
     font-size: 75%;
     font-weight: 100;
 }
@@ -507,6 +508,9 @@ a {
 }
 
 .d-none {
+    display: none;
+}
+.mobile-hidden {
     display: none;
 }
 
@@ -557,7 +561,7 @@ a {
 }
 
 /* Info message */
-.info-message{
+.info-message {
     width: 95%;
     padding: 2.5%;
     text-align: center;
@@ -570,7 +574,7 @@ a {
     font-size: 90%;
 }
 
-.error-message{
+.error-message {
     background-color: var(--danger);
 }
 
@@ -612,7 +616,7 @@ a {
     word-wrap: break-word;
     /*border: solid 1px var(--main-border-color);*/
     /*border-radius: 5px;*/
-    box-shadow: 0px 2px 5px  var(--main-border-color);
+    box-shadow: 0px 2px 5px var(--main-border-color);
     margin-bottom: 5%;
     float: left;
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -790,7 +794,7 @@ a {
     max-width: 100%;
 }
 
-.img-input input{
+.img-input input {
     width: 90%;
     font-size: 75%;
     left: 5%;
@@ -845,7 +849,7 @@ a {
 }
 
 
-.course-view h3{
+.course-view h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 150%;
     font-weight: 800;
@@ -854,7 +858,7 @@ a {
 }
 
 .course-info-duration {
-    margin:0;
+    margin: 0;
     padding: 0;
     font-size: 90%;
 }
@@ -909,7 +913,7 @@ a {
     margin-top: 0;
 }
 
-.course-view-btn a, .course-view-btn form{
+.course-view-btn a, .course-view-btn form {
     float: left;
     margin-bottom: 2vh;
     width: 100%;
@@ -945,12 +949,13 @@ a {
     text-align: center;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    /*width: 100vw;*/
     min-height: 15vw;
     max-height: 18vw;
     background-color: #fff;
     border-top: solid 1px var(--main-border-color);
-    box-shadow: 0 -2px 4px rgba(0,0,0,.08), 0 -4px 12px rgba(0,0,0,.08)
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, .08), 0 -4px 12px rgba(0, 0, 0, .08);
+    z-index: 2;
 }
 
 .ready-for-payment p {
@@ -971,7 +976,7 @@ a {
 
 .form-payment {
     float: right;
-    width: 34%;
+    width: 33%;
     text-align: right;
     margin-top: 2.5vw;
     margin-right: 1vw;
@@ -1005,12 +1010,34 @@ button.mercadopago-button {
         font-size: 16px;
     }
 
+    .mobile-hidden {
+        display: inline;
+    }
 
     .course-card {
         width: 85%;
         margin-left: 7.5%;
         margin-right: 7.5%;
         height: 120px;
+    }
+
+    .course-view-btn .form-payment{
+        margin-top: 0;
+    }
+
+    .ready-for-payment {
+        height: 60px;
+
+        min-height: 0;
+    }
+
+    .ready-for-payment p {
+        margin-top: 15px;
+        width: 50%;
+    }
+
+    .ready-for-payment .form-payment {
+        margin-top: 10px;
     }
 
 }
@@ -1121,7 +1148,6 @@ button.mercadopago-button {
     .course-card {
         height: 130px;
     }
-
 
 
 }
