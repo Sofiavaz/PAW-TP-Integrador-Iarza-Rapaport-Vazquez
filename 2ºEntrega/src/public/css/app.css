@@ -17,11 +17,16 @@ html, body {
     color: var(--main-font-color);
 }
 
+section {
+    float: left;
+    width: 100%;
+}
+
 p {
     color: var(--main-font-color);
 }
 
-ul {
+ul, ol {
     padding: 0;
 }
 
@@ -57,11 +62,12 @@ form input {
 }
 
 .container {
-    width: 90%;
-    margin-left: 5%;
+    width: 95%;
+    margin-left: 2.5%;
 }
 
 .container-full {
+    float: left;
     width: 100%;
 }
 
@@ -607,7 +613,6 @@ a {
     /*border: solid 1px var(--main-border-color);*/
     /*border-radius: 5px;*/
     box-shadow: 0px 2px 5px  var(--main-border-color);
-
     margin-bottom: 5%;
     float: left;
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -656,50 +661,80 @@ a {
     }
 }
 
-
-.course-card img {
+.course-card-img-section {
+    float: left;
     width: 40%;
     height: 100%;
-    margin-right: 5%;
+    position: relative;
+}
+
+.course-card-info-section {
     float: left;
+    width: 55%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    position: relative;
+}
+
+.course-card-link-section {
+    float: left;
+    width: 55%;
+    margin-left: 2.5%;
+}
+
+
+.course-card img {
+    /*width: 40%;*/
+    /*height: 100%;*/
+    /*margin-top: auto;*/
+    /*margin-right: 5%;*/
+    max-height: 100%;
+    max-width: 90%;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    margin: auto 5% auto 5%;
 }
 
 .course-card-title {
-    width: 50%;
     overflow: hidden;
     max-height: 40px;
-    margin: 2.5% 0 0 0;
+    max-width: 95%;
+    margin: 5% 0 0 0;
     float: left;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 90%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
     font-weight: 600;
-    color: var(--main-bg-color-dark);
+    /*color: var(--main-bg-color-dark);*/
+    color: var(--main-font-color);
 }
 
 .course-card p {
     float: left;
-    font-size: 90%;
+    font-size: 85%;
     margin: 0;
     line-height: 160%;
 }
 
 .course-card-price {
-    width: 25%;
+    width: 45%;
     text-align: right;
 }
 
 .course-card-date {
-    width: 25%;
+    width: 50%;
     border-right: solid 1px var(--main-border-color);
 }
 
 .course-card-time {
-    width: 25%;
+    width: 50%;
     border-right: solid 1px var(--main-border-color);
 }
 
 .course-card-duration {
-    width: 25%;
+    width: 45%;
     text-align: right;
 }
 
@@ -743,6 +778,7 @@ a {
 
 .lbl-info {
     float: left;
+    font-size: 80%;
     color: var(--main-bg-color);
 }
 
@@ -793,9 +829,9 @@ a {
 /* Course view */
 
 .course-view {
-    width: 100%;
     float: left;
     margin-bottom: 2vh;
+    overflow: hidden;
 }
 
 /*.course-view * {*/
@@ -886,9 +922,15 @@ a {
 
 .course-view-learn {
     float: left;
+    width: 99%;
     border: solid 1px var(--main-border-color);
-    padding: 1vh 2vh 3vh 2vh;
     background-color: rgba(0, 70, 248, 0.05);
+}
+
+.course-view-learn * {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
 }
 
 .course-view-learn h4 {
@@ -960,7 +1002,7 @@ button.mercadopago-button {
 @media (min-width: 550px) {
 
     body {
-        font-size: 17px;
+        font-size: 16px;
     }
 
 
@@ -974,20 +1016,29 @@ button.mercadopago-button {
 }
 
 @media (min-width: 650px) {
+
     body {
-        font-size: 18px;
+        font-size: 17px;
     }
 
+    .container {
+        width: 85%;
+        margin-left: 7.5%;
+    }
 
     .course-card-title {
-        max-height: 50px;
+        max-height: 45px;
+    }
+
+    .course-card p {
+        font-size: 75%;
     }
 }
 
 @media (min-width: 768px) {
 
     body {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .container {
@@ -1000,18 +1051,29 @@ button.mercadopago-button {
         height: 35vh;
     }
 
+    .lbl-info {
+        font-size: 75%;
+    }
 }
 
 @media (min-width: 950px) {
+
     .container {
         width: 75%;
         margin-left: 12.5%;
+    }
+
+    .course-view img {
+        width: 50%;
+
     }
 
 }
 
 
 @media (min-width: 1050px) {
+
+
     .container {
         width: 65%;
         margin-left: 17.5%;
@@ -1020,20 +1082,37 @@ button.mercadopago-button {
     .cover-body {
         padding: 2.5%;
     }
+
+    .course-card p {
+        font-size: 75%;
+    }
 }
 
 @media (min-width: 1150px) {
+
+
     .container {
         width: 60%;
         margin-left: 20%;
     }
 
     .course-card-title {
-        max-height: 50px;
+        max-height: 45px;
     }
+
+    .course-card p {
+        font-size: 80%;
+    }
+
 }
 
 @media (min-width: 1300px) {
+
+
+    body {
+        font-size: 19px;
+    }
+
     .container {
         width: 57.5%;
         margin-left: 21.25%;

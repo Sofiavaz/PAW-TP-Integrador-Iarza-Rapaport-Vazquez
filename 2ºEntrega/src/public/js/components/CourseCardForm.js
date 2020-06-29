@@ -22,8 +22,8 @@ export default function CourseCardForm(e) {
     form.appendChild(inputToken);
 
     let labelInfo = document.createElement('a');
-    labelInfo.classList.add('text-sm');
-    labelInfo.classList.add('lbl-info');
+    labelInfo.classList.add('text-sm', 'lbl-info', 'course-card-link-section');
+
     if (e.access_link != null){
         labelInfo.innerText = "Link definido";
         courseCard.appendChild(labelInfo);

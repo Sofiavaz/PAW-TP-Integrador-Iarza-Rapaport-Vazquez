@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section>
+    <section class="container">
 
         @if (session('error'))
         <section class="info-message error-message">
@@ -32,11 +32,11 @@
                 </form>
             </section>
         @endif
-        <section class="course-view">
+        <section class="course-view container">
 
             <img src="/uploads/{{$course->img_path}}">
 
-            <section class="container">
+            <section class="">
                 <h3>{{$course->name}}</h3>
                 <p class="clock-icon course-info-duration">{{$course->duration_mins}} minutos</p>
                 <p class="course-view-description">{{$course->short_description}}</p>
