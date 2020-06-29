@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LdkyKoZAAAAAHXm4XbBEDRYLycecUHOiNkBzFwp"></script>
+<script src="{{asset('js/auth/login.js')}}" type="module"></script>
+
 @section('content')
     <section class="container">
 
         <h2 class="text-center info-title">¡Inicia sesión en Dashcourse!</h2>
-
 
         @if ($errors->any())
             <p class="text-center text-danger">
@@ -13,7 +15,7 @@
         @endif
 
 
-        <form method="POST" action="{{ route('login') }}" class="offset-res-4 col-res-2">
+        <form method="POST" action="{{ route('login') }}" class="offset-res-3 col-res-4" id="login-form">
             @csrf
             <p class="row">
                 <label for="email" class="col-res-10">{{ __('E-Mail Address') }}</label>
@@ -31,7 +33,11 @@
             </p>
 
             <p class="row">
-                <input type="submit" class="btn btn-block btn-blue text-sm" value="Iniciar sesión"/>
+                <input type="submit" class="btn btn-block btn-blue text-sm g-recaptcha"
+                       value="Iniciar sesión"
+                       data-sitekey="reCAPTCHA_site_key"
+                       data-callback='onSubmit'
+                       data-action='submit'/>
             </p>
 
             <p class="row text-center">
