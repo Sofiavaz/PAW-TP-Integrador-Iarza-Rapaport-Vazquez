@@ -24,7 +24,7 @@ class CreateCoursesTable extends Migration
             $table->smallInteger('max_enrollments');
             $table->decimal('price', 8, 2);
             $table->integer('duration_mins');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id')->unsigned()->nullable()->constrained('categories');
             $table->foreignId('platform_id')->unsigned()->nullable()->constrained('platforms');
             $table->string('access_link')->nullable(true);
             $table->string('access_info')->nullable(true);
