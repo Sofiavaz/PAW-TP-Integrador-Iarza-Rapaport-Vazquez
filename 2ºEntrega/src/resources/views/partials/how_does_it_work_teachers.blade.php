@@ -5,6 +5,6 @@
         <li>Publicás tu clase en vivo</li>
         <li>¡Los alumnos se inscriben y obtienen la información para acceder!</li>
     </ol>
-    <a class="btn btn-lg btn-border-white">Comenzar</a>
+    <a class="btn btn-lg btn-border-white" href="{{route('register')}}">Comenzar</a>
 </section>
 

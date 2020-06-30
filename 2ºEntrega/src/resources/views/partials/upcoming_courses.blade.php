@@ -5,7 +5,7 @@
     <ul id="upcoming-list" class="container">
     </ul>
     <div class="text-center">
-        <button id="button-more-upcoming" class="btn btn-lg btn-border-light">Ver más</button>
+        <button id="button-more-upcoming" class="btn btn-lg btn-border-light" href="">Ver más</button>
     </div>
 
 </section>

@@ -5,5 +5,5 @@
         <li>Te registrás y te inscribís</li>
         <li>Accedés a la información necesaria para poder participar de la clase</li>
     </ol>
-    <a class="btn btn-blue btn-lg">Registrarme</a>
+    <a class="btn btn-blue btn-lg" href="{{route('register')}}" >Registrarme</a>
 </section>
