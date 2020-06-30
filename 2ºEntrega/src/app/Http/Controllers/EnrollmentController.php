@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use MercadoPago\Item;
+use MercadoPago\MerchantOrder;
 use MercadoPago\Payer;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
@@ -79,17 +80,27 @@ class EnrollmentController extends Controller
 
         if (!is_null($preference->id)) {
 
-            // Obtengo el id del curso
-            $courseId = $preference->items[0]->id;
+            // Reviso pago
+            $order_id = $request->get('merchant_order_id');
 
-            $enrollment = new Enrollment();
-            $enrollment->course_id = $courseId;
-            $enrollment->user_id = Auth::user()->id;
-            $enrollment->preference_id = $preference->id;
+            $order = MerchantOrder::find_by_id($order_id);
 
-            $enrollment->save();
+            if ($order->order_status == 'paid') {
+                // Obtengo el id del curso
+                $courseId = $preference->items[0]->id;
 
-            return redirect()->action('HomeController@index')->with('message', 'Inscripción registrada con éxito.');
+                $enrollment = new Enrollment();
+                $enrollment->course_id = $courseId;
+                $enrollment->user_id = Auth::user()->id;
+                $enrollment->preference_id = $preference->id;
+
+                $enrollment->save();
+
+                return redirect()->action('HomeController@index')->with('message', 'Inscripción registrada con éxito.');
+            }
+            else {
+                return redirect()->action('HomeController@index')->with('error', 'El pago no está aprobado.');
+            }
         }
 
         return back()->with('error', 'Se produjo un problema con su inscripción...');

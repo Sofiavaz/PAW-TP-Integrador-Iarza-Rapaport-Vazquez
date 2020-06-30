@@ -34,7 +34,7 @@ class HomeController extends Controller
      */
     public function teaching(Request $request){
         $perPage = $request->get('perPage');
-        return Course::teaching()->paginate($perPage);
+        return Course::teaching()->after(now())->paginate($perPage);
     }
 
     /**
@@ -42,6 +42,6 @@ class HomeController extends Controller
      */
     public function taking(Request $request){
         $perPage = $request->get('perPage');
-        return Course::taking()->paginate($perPage);
+        return Course::taking()->after(now())->paginate($perPage);
     }
 }

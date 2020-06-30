@@ -17,7 +17,7 @@ html, body {
     color: var(--main-font-color);
 }
 
-section {
+section, div {
     float: left;
     width: 100%;
 }
@@ -576,10 +576,12 @@ a {
 
 .error-message {
     background-color: var(--danger);
+    color: #fff;
 }
 
 .success-message {
     background-color: var(--success);
+    color: #fff;
 }
 
 
@@ -743,15 +745,16 @@ a {
 }
 
 .course-card form {
+    position: relative;
     float: left;
-    position: absolute;
     background-color: #fff;
-    left: 0;
-    width: 87.5%;
-    margin: 20% 0 0 5%;
-    padding: 1vh 1vw 4vw 3vw;
+    width: 85%;
+    z-index: 2;
+    margin-left: 4%;
+    margin-top: -10%;
+    padding: 2% 2% 4% 5%;
     border: solid 1px var(--main-border-color);
-    box-shadow: 2px 25px 85px var(--main-border-color);
+    box-shadow: 2px 25px 25px var(--main-border-color);
 }
 
 .course-card form input {
@@ -778,12 +781,14 @@ a {
     text-align: right;
     margin-right: 2vw;
     padding-right: 2%;
+    cursor: pointer;
 }
 
 .lbl-info {
     float: left;
     font-size: 80%;
     color: var(--main-bg-color);
+    cursor: pointer;
 }
 
 
@@ -846,6 +851,7 @@ a {
 .course-view img {
     min-width: 100vw;
     max-height: 25vh;
+    object-fit: cover;
 }
 
 
@@ -1025,6 +1031,19 @@ button.mercadopago-button {
         margin-top: 0;
     }
 
+    .course-view img {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .course-card form {
+        padding: 2% 2% 2% 5%;
+    }
+
+    .course-card .btn {
+        margin-top: 7px;
+    }
+
     .ready-for-payment {
         height: 60px;
 
@@ -1071,7 +1090,6 @@ button.mercadopago-button {
     .container {
         width: 75%;
         margin-left: 12.5%;
-        overflow: hidden;
     }
 
     .cover {
@@ -1090,10 +1108,6 @@ button.mercadopago-button {
         margin-left: 12.5%;
     }
 
-    .course-view img {
-        width: 50%;
-
-    }
 
 }
 

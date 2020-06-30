@@ -22,7 +22,7 @@
                     <span class="course-view-spots">{{$course->free_spots}} lugares libres</span>
                 </p>
 
-                <form action="/procesar-pago" method="POST" class="form-payment">
+                <form action="{{route('enrollments.successful')}}" method="GET" class="form-payment">
                     <script
                         src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
                         data-preference-id="{{$preference->id}}"
@@ -68,7 +68,7 @@
                 </p>
                 <div class="course-view-btn">
                     @if (isset($preference))
-                    <form action="/procesar-pago" method="POST" class="form-payment">
+                    <form action="{{route('enrollments.successful')}}" method="GET" class="form-payment">
                         <script
                             src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
                             data-preference-id="{{$preference->id}}"

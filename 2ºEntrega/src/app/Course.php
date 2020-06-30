@@ -5,6 +5,7 @@ namespace App;
 use Doctrine\DBAL\Types\TextType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -41,22 +42,23 @@ class Course extends Model
 
     public static function upcoming($perPage)
     {
-//        if (Auth::check()) {
-//
-//            return Course::query()
-//                ->join('enrollments as e', 'e.course_id', 'courses.id')
-//                ->where('e.user_id', '<>', Auth::id())
-////                ->where('courses.user_id', '<>', Auth::id())
-//                ->where('courses.date_time', '>', now())->paginate($perPage);
-//        }
-//        else
-//        {
-            return Course::query()->where('courses.date_time', '>', now())
-                ->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time', 'courses.short_description',
-                'courses.long_description', 'courses.max_enrollments', 'courses.price', 'courses.duration_mins',
-                'courses.platform_id')
-                ->paginate($perPage);
-//        }
+        return Course::query()->where('courses.date_time', '>', now())
+            ->join('users', 'users.id', '=','courses.user_id')
+            ->join('platforms', 'platforms.id', '=', 'courses.platform_id')
+            ->leftJoin('enrollments', 'courses.id', '=', 'enrollments.course_id')
+            ->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
+                'users.name as teacher_name', 'users.email as teacher_email',
+                'platforms.name as platform_name',
+                'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
+                'courses.price', 'courses.duration_mins','courses.platform_id',
+                DB::raw('max_enrollments - count(enrollments.id) as free_spots'))
+            ->groupBy('courses.id', 'courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
+                'teacher_name', 'teacher_email',
+                'platform_name',
+                'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
+                'courses.price', 'courses.duration_mins','courses.platform_id')
+            ->orderBy('courses.date_time', 'desc')
+            ->paginate($perPage);
     }
 
     public static function scopeTeaching($query)
@@ -70,24 +72,30 @@ class Course extends Model
             ->where('e.user_id', '=', Auth::id());
     }
 
+    public static function scopeAfter($query, $date)
+    {
+        return $query->where('date_time', '>=', $date);
+    }
+
     public static function recommended($perPage)
     {
-//        if (Auth::check()) {
-//            return Course::query()->join('enrollments as e', 'e.course_id', 'courses.id')
-//                ->where('e.user_id', '<>', Auth::id())
-//                ->where('courses.user_id', '<>', Auth::id())
-//                ->join('users', 'courses.user_id', '=', 'users.id')
-//                ->select('courses.name', 'courses.date_time', 'courses.short_description',
-//                            'courses.long_description', 'courses.max_enrollments', 'courses.price',
-//                            'courses.duration_mins', )
-//                ->paginate($perPage);
-//        }
-//        else {
-            return Course::query()->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
-                'courses.short_description','courses.long_description', 'courses.max_enrollments',
-                'courses.price', 'courses.duration_mins', 'courses.platform_id')
+        return Course::query()->where('courses.date_time', '>', now())
+            ->join('users', 'users.id', '=','courses.user_id')
+            ->join('platforms', 'platforms.id', '=', 'courses.platform_id')
+            ->leftJoin('enrollments', 'courses.id', '=', 'enrollments.course_id')
+            ->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
+                'users.name as teacher_name', 'users.email as teacher_email',
+                'platforms.name as platform_name',
+                'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
+                'courses.price', 'courses.duration_mins','courses.platform_id',
+                DB::raw('max_enrollments - count(enrollments.id) as free_spots'))
+            ->groupBy('courses.id', 'courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
+                'teacher_name', 'teacher_email',
+                'platform_name',
+                'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
+                'courses.price', 'courses.duration_mins','courses.platform_id')
+            ->orderBy('courses.date_time', 'desc')
             ->paginate($perPage);
-//        }
     }
 
     public function platform()
@@ -96,7 +104,8 @@ class Course extends Model
     }
 
 
-    public function attends($user){
+    public function attends($user)
+    {
         $enrollment = Enrollment::all()->where('course_id', '=', $this->id)
             ->where('user_id', '=', $user->id)
             ->all();

@@ -110,6 +110,18 @@ class CourseController extends Controller
             return redirect()->route('enrollments.enroll', $id);
     }
 
+
+
+    public function defineLink(Request $request){
+        $course = Course::findOrFail($request->get('course-id'));
+
+        $course->access_link = $request->get('course-link');
+        $course->save();
+
+        return back()->with('message', 'Link de la clase registrado!');
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
