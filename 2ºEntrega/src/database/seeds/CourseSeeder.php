@@ -22,7 +22,7 @@ class CourseSeeder extends Seeder
         $course->long_description = "Be at miss or each good play home they. It leave taste mr in it fancy. She son lose does fond bred gave lady get. Sir her company conduct expense bed any. Sister depend change off piqued one. Contented continued any happiness instantly objection yet her allowance. Use correct day new brought tedious. By come this been in. Kept easy or sons my it done. ";
         $course->max_enrollments = 20;
         $course->price = 200;
-        $course->img_path = 'public/uploads/php5F5A.tmp.jpg';
+        $course->img_path = 'src/public/uploads/php5F5A.tmp.jpg';
         $course->duration_mins = 60;
         $course->platform()->associate(\App\Platform::all()->first());
         $course->save();
