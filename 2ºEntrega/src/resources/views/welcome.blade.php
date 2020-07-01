@@ -8,7 +8,7 @@
                 <h2>Explorás clases en vivo. Te inscribís. Recibís los datos para poder asistir.</h2>
             </div>
             <p class="row mobile-hidden">
-                <a class="btn btn-lg btn-border-white">Explorar</a>
+                <a class="btn btn-lg btn-border-white" href="{{route('api.courses.recommended')}}">Explorar</a>
             </p>
         </div>
     </section>

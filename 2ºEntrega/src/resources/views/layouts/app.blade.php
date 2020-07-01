@@ -50,7 +50,7 @@
                             <a href="{{route('courses.index')}}">Explorar</a>
                         </li>
                         <li>
-                            <a href="{{route('home')}}" class="ml-3">Home</a>
+                            <a href="{{route('home')}}" class="ml-3">Perfil</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}" class="ml-2 mobile-hidden"
