@@ -8,11 +8,11 @@
             <p>{{session('error')}}</p>
         </section>
         @else
-        @if (session('message'))
-            <section class="info-message success-message">
-                <p>{{session('message')}}</p>
-            </section>
-        @endif
+            @if (session('message'))
+                <section class="info-message success-message">
+                    <p>{{session('message')}}</p>
+                </section>
+            @endif
         @endif
 
         @if (isset($preference))

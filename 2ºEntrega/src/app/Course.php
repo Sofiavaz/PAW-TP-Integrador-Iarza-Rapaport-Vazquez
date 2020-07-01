@@ -57,7 +57,7 @@ class Course extends Model
                 'platform_name',
                 'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
                 'courses.price', 'courses.duration_mins','courses.platform_id')
-            ->orderBy('courses.date_time', 'desc')
+            ->orderBy('courses.date_time')
             ->paginate($perPage);
     }
 
@@ -69,6 +69,13 @@ class Course extends Model
     public static function scopeTaking($query)
     {
         return $query->join('enrollments as e', 'e.course_id', '=', 'courses.id')
+            ->join('users', 'users.id', '=','courses.user_id')
+            ->join('platforms', 'platforms.id', '=', 'courses.platform_id')
+            ->select('courses.id', 'courses.name', 'courses.img_path', 'courses.date_time',
+                'users.name as teacher_name', 'users.email as teacher_email',
+                'platforms.name as platform_name',
+                'courses.short_description', 'courses.long_description', 'courses.max_enrollments',
+                'courses.price', 'courses.duration_mins','courses.platform_id', 'courses.access_link')
             ->where('e.user_id', '=', Auth::id());
     }
 

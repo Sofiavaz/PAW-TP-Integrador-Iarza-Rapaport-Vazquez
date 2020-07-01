@@ -22,9 +22,15 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(5);
+//        $courses = Course::paginate(5);
 
-        return view('courses.index')->with('courses', $courses);
+        return view('courses.index');//->with('courses', $courses);
+    }
+
+    public function all(Request $request){
+        $perPage = $request->get('perPage');
+        $courses = Course::paginate($perPage);
+        return $courses->toJson();
     }
 
     /**

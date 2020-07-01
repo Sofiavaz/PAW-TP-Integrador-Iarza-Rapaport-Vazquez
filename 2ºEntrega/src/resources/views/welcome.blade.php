@@ -7,7 +7,7 @@
             <div class="col-res-4">
                 <h2>Explorás clases en vivo. Te inscribís. Recibís los datos para poder asistir.</h2>
             </div>
-            <p class="row">
+            <p class="row mobile-hidden">
                 <a class="btn btn-lg btn-border-white">Explorar</a>
             </p>
         </div>

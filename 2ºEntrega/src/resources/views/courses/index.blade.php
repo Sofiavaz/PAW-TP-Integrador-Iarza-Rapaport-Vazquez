@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
-<section>
-    <h2>Clases disponibles</h2>
+@section('scripts')
+    <script src="{{asset('js/courses/index.js')}}" type="module"></script>
+@endsection
 
-    <ul>
-    @foreach($courses as $course)
-        <li>{{$course}}</li>
-    @endforeach
+@section('content')
+<section class="container">
+    <h2 class="info-title">Clases disponibles</h2>
+
+    <ul id="course-list" class="container">
     </ul>
+
+    <div class="text-center">
+        <button id="button-more" class="btn btn-lg btn-border-light">Ver más</button>
+    </div>
 </section>
 @endsection

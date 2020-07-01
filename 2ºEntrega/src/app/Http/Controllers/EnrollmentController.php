@@ -8,9 +8,12 @@ use App\Enrollment;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
 use MercadoPago\Payer;
+use MercadoPago\Payment;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
 
@@ -43,7 +46,7 @@ class EnrollmentController extends Controller
         // Agrega credenciales
         SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
-        // Crea un objeto de preferencia
+        // Crea un objeto preferencia
         $preference = new Preference();
 
         // Crea un ítem en la preferencia
@@ -60,13 +63,17 @@ class EnrollmentController extends Controller
         $payer->email = Auth::user()->email;
         $preference->payer = $payer;
 
+        $preference->auto_return = 'approved';
+        $preference->binary_mode = true;
+
         $preference->back_urls = array(
             "success" => route('enrollments.successful'),
             "failure" => route('enrollments.failure'),
             "pending" => route('enrollments.pending')
         );
 
-        $preference->save();
+
+       $preference->save();
 
         return view('courses.show')->with('course', $course)->with('preference', $preference);
     }
@@ -74,33 +81,36 @@ class EnrollmentController extends Controller
 
     public function paymentSuccessful(Request $request){
 
-        // Pido a MP la preference
-        SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
-        $preference = Preference::find_by_id($request->get('preference_id'));
+        try {
+            // Pido a MP la preference
+            SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+            $preference = Preference::find_by_id($request->get('preference_id'));
 
-        if (!is_null($preference->id)) {
+            if (!is_null($preference->id)) {
 
-            // Reviso pago
-            $order_id = $request->get('merchant_order_id');
+                // Reviso pago
+                $payment = Payment::find_by_id($request->get('payment_id'));
 
-            $order = MerchantOrder::find_by_id($order_id);
-
-            if ($order->order_status == 'paid') {
                 // Obtengo el id del curso
                 $courseId = $preference->items[0]->id;
 
-                $enrollment = new Enrollment();
-                $enrollment->course_id = $courseId;
-                $enrollment->user_id = Auth::user()->id;
-                $enrollment->preference_id = $preference->id;
+                if ($payment->status == 'approved') {
+                    $enrollment = new Enrollment();
+                    $enrollment->course_id = $courseId;
+                    $enrollment->user_id = Auth::user()->id;
+                    $enrollment->preference_id = $preference->id;
 
-                $enrollment->save();
+                    $enrollment->save();
 
-                return redirect()->action('HomeController@index')->with('message', 'Inscripción registrada con éxito.');
+                    return redirect()->action('HomeController@index')->with('message', 'Inscripción registrada con éxito.');
+                } else {
+                    return redirect()->action('EnrollmentController@enroll', $courseId)
+                        ->with('error', 'Su pago no fue aprobado.');
+                }
             }
-            else {
-                return redirect()->action('HomeController@index')->with('error', 'El pago no está aprobado.');
-            }
+        }
+        catch (\Exception $e){
+            Log::error($e);
         }
 
         return back()->with('error', 'Se produjo un problema con su inscripción...');
@@ -108,11 +118,18 @@ class EnrollmentController extends Controller
     }
 
     public function paymentFailure(Request $request){
-        return back()->with('error', "No pudimos procesar su pago...");
+        return redirect()->action('HomeController@index')->with('error', 'No se pudo registrar la inscripción.');
     }
 
     public function paymentPending(){
 
+    }
+
+    public function paymentNotification(Request $request){
+        SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+
+
+        return response(200);
     }
 
 

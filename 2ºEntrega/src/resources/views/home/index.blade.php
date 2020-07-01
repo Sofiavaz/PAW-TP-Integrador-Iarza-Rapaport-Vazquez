@@ -6,10 +6,17 @@
 
 @section('content')
 
-    @if (session('message'))
-        <p class="info-message success-message">{{session('message')}}</p>
+    @if (session('error'))
+        <section class="info-message error-message">
+            <p>{{session('error')}}</p>
+        </section>
+    @else
+        @if (session('message'))
+            <section class="info-message success-message">
+                <p>{{session('message')}}</p>
+            </section>
+        @endif
     @endif
-
     <section class="container">
         <h2 class="info-title">Clases que vas a dar <a class="btn btn-blue btn-sm float-right"
                                                        href="{{route('courses.create')}}">Nueva</a></h2>
