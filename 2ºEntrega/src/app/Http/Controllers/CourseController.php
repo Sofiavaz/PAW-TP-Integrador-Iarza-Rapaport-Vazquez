@@ -72,6 +72,8 @@ class CourseController extends Controller
      */
     public function store(StoreCourse $request)
     {
+        $this->authorize('create', Course::class);
+
         $course = new Course();
 
         $course->fill($request->all('name', 'date_time', 'short_description', 'long_description', 'duration_mins',
@@ -116,6 +118,9 @@ class CourseController extends Controller
 
 
     public function defineLink(Request $request){
+
+        $this->authorize('update', Course::class);
+
         $course = Course::findOrFail($request->get('course-id'));
 
         $course->access_link = $request->get('course-link');
@@ -124,38 +129,4 @@ class CourseController extends Controller
         return back()->with('message', 'Link de la clase registrado!');
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Course  $course
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Course $course)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Course  $course
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Course $course)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Course  $course
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Course $course)
-    {
-        //
-    }
 }

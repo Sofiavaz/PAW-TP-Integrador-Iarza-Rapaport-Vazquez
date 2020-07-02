@@ -581,7 +581,21 @@ a {
     position: absolute;
     margin-top: -50px;
     text-align: right;
+}
 
+/* Tooltip */
+.tooltiptext {
+    position: absolute;
+    font-size: 75%;
+    background-color: #666;
+    color: #fff;
+    padding: 7px;
+    visibility: hidden;
+    text-align: center;
+}
+
+.info-title  a:hover .tooltiptext {
+    visibility: visible;
 }
 
 /* Info message */
@@ -628,6 +642,26 @@ a {
 
 .info-section ol {
     margin-bottom: 5vh;
+}
+
+.ol-decor {
+    counter-reset: li;
+}
+
+.ol-decor li{
+    margin-bottom: 15px;
+    line-height: 225%;
+}
+
+
+.ol-decor li:before {
+    counter-increment: li;
+    content: counter(li);
+    padding: 5px 10px 5px 10px;
+    border: solid 1px;
+    border-radius: 50%;
+    color: inherit;
+    margin-right: 10px;
 }
 
 .container-border-down {
@@ -1076,6 +1110,10 @@ button.mercadopago-button {
     margin-bottom: 0;
 }
 
+
+
+
+
 @media (min-width: 550px) {
 
     body {
@@ -1180,6 +1218,7 @@ button.mercadopago-button {
     }
 
 
+
 }
 
 
@@ -1219,6 +1258,16 @@ button.mercadopago-button {
 
     .course-card p {
         font-size: 80%;
+    }
+
+    .ol-decor {
+        font-size: 110%;
+    }
+
+
+    .ol-decor li:before {
+        padding: 5px 12px 5px 12px;
+        margin-right: 10px;
     }
 
 }

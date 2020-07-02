@@ -26,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.index');
+        $verified = Auth::user()->emailVerified();
+
+        return view('home.index')->with('emailVerified', $verified);
     }
 
     /**

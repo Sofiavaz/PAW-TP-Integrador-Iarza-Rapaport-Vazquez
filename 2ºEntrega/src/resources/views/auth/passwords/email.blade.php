@@ -4,7 +4,7 @@
     <section class="container">
         <h2 class="text-center info-title">Reestablecer contraseña</h2>
         @if (session('status'))
-            <div class="" role="alert">
+            <div class="info-message success-message" role="alert">
                 {{ session('status') }}
             </div>
         @endif

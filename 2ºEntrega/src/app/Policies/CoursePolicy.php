@@ -21,8 +21,9 @@ class CoursePolicy
     {
        return $user->emailVerified()
             ? Response::allow()
-            : Response::deny('Debes ser un profesor para poder crear un curso.');
+            : Response::deny('Debes verificar tu email para poder crear un curso.');
     }
+
 
     /**
      * Determine whether the user can update the model.

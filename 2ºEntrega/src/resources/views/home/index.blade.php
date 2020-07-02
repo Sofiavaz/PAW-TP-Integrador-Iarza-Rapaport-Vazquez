@@ -18,8 +18,18 @@
         @endif
     @endif
     <section class="container">
-        <h2 class="info-title">Clases que vas a dar <a class="btn btn-blue btn-sm float-right"
-                                                       href="{{route('courses.create')}}">Nueva</a></h2>
+        <h2 class="info-title">Clases que vas a dar
+            @if ($emailVerified)
+                <a class="btn btn-blue btn-sm float-right"
+                   href="{{route('courses.create')}}">Nueva</a>
+            @else
+                <a class="btn btn-disabled btn-sm float-right">
+                    Nueva
+                    <span class="tooltiptext">Debes verificar tu email para poder registrar una clase</span>
+                </a>
+
+            @endif
+        </h2>
 
         <ul id="teaching-list" class="container">
             <li class="text-center">Ups... ¡todavía no tenés clases para dar!
