@@ -19,7 +19,7 @@
             <section class="ready-for-payment col-res-6 offset-res-2">
                 <p class="course-view-price-spots">
                     <span class="course-view-price">${{$course->price}}</span>
-                    <span class="course-view-spots">{{$course->free_spots}} lugares libres</span>
+                    <span class="course-view-spots">{{$course->freeSpots()}} lugares libres</span>
                 </p>
 
                 <form action="{{route('enrollments.successful')}}" method="GET" class="form-payment">
@@ -64,7 +64,7 @@
                 </section>
                 <p class="course-view-price-spots">
                     <span class="course-view-price">${{$course->price}}</span>
-                    <span class="course-view-spots">{{$course->free_spots}} lugares disponibles</span>
+                    <span class="course-view-spots">{{$course->freeSpots()}} lugares disponibles</span>
                 </p>
                 <div class="course-view-btn">
                     @if (isset($preference))
@@ -76,8 +76,12 @@
                         </script>
                     </form>
                     @else
-                        <a href="{{route('enrollments.enroll', $course->id)}}"
-                           class="btn btn-blue btn-lg btn-block">Inscribirse</a>
+                        @if (!isset($course->soldOut))
+                            <a href="{{route('enrollments.enroll', $course->id)}}"
+                               class="btn btn-blue btn-lg btn-block">Inscribirse</a>
+                        @else
+                            <a class="btn btn-disabled btn-lg btn-block" readonly>Agotado</a>
+                        @endif
                     @endif
                 </div>
 

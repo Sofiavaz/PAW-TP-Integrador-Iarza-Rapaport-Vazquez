@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -17,7 +18,7 @@ use phpDocumentor\Reflection\Types\Boolean;
  *
  */
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -52,8 +53,8 @@ class User extends Authenticatable
     /**
      *
      */
-    public function isTeacher()
+    public function emailVerified()
     {
-        return $this->hasVerifiedEmail();
+        return $this->email_verified_at != null;
     }
 }

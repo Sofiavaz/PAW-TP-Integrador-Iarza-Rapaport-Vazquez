@@ -59,7 +59,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-//        $this->authorize('create', CourseCard::class);
+        $this->authorize('create', Course::class);
 
         return view('courses.create');
     }
@@ -107,9 +107,6 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
 
         if (!Auth::check() || $course->teacher == Auth::user() || $course->attends(Auth::user())) {
-
-            $course->free_spots = $course->max_enrollments; // TODO Calcular lugares libres
-
             return view('courses.show')->with('course', $course);
         }
         else

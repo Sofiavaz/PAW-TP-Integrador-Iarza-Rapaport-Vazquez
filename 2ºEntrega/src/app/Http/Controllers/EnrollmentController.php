@@ -29,8 +29,6 @@ class EnrollmentController extends Controller
     public function enroll($courseId)
     {
         $course = Course::findOrFail($courseId);
-        $course->free_spots = $course->max_enrollments; // TODO Calcular lugares libres
-
         // TODO Si el usuario esta inscripto o es profesor no puede inscribirse de nuevo
 
         if ($course->teacher == Auth::user()) {
@@ -42,40 +40,45 @@ class EnrollmentController extends Controller
         }
 
         // TODO Si quedan lugares libres devolver preference. Si no, vista muestra "agotado"
+        if ($course->freeSpots() > 0) {
 
-        // Agrega credenciales
-        SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
+            // Agrega credenciales
+            SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
-        // Crea un objeto preferencia
-        $preference = new Preference();
+            // Crea un objeto preferencia
+            $preference = new Preference();
 
-        // Crea un ítem en la preferencia
-        $item = new Item();
-        $item->id = $course->id;
-        $item->title = $course->name;
-        $item->quantity = 1;
-        $item->unit_price = $course->price;
-        $item->currency_id = 'ARS';
-        $preference->items = array($item);
+            // Crea un ítem en la preferencia
+            $item = new Item();
+            $item->id = $course->id;
+            $item->title = $course->name;
+            $item->quantity = 1;
+            $item->unit_price = $course->price;
+            $item->currency_id = 'ARS';
+            $preference->items = array($item);
 
-        $payer = new Payer();
-        $payer->name = Auth::user()->name;
-        $payer->email = Auth::user()->email;
-        $preference->payer = $payer;
+            $payer = new Payer();
+            $payer->name = Auth::user()->name;
+            $payer->email = Auth::user()->email;
+            $preference->payer = $payer;
 
-        $preference->auto_return = 'approved';
-        $preference->binary_mode = true;
+            $preference->auto_return = 'approved';
+            $preference->binary_mode = true;
 
-        $preference->back_urls = array(
-            "success" => route('enrollments.successful'),
-            "failure" => route('enrollments.failure'),
-            "pending" => route('enrollments.pending')
-        );
+            $preference->back_urls = array(
+                "success" => route('enrollments.successful'),
+                "failure" => route('enrollments.failure'),
+                "pending" => route('enrollments.pending')
+            );
 
+            $preference->save();
 
-       $preference->save();
-
-        return view('courses.show')->with('course', $course)->with('preference', $preference);
+            return view('courses.show')->with('course', $course)->with('preference', $preference);
+        }
+        else {
+            $course->soldOut = true;
+            return view('courses.show')->with('course', $course);
+        }
     }
 
 

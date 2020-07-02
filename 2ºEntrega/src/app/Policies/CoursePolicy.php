@@ -19,7 +19,7 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-       return $user->isTeacher()
+       return $user->emailVerified()
             ? Response::allow()
             : Response::deny('Debes ser un profesor para poder crear un curso.');
     }

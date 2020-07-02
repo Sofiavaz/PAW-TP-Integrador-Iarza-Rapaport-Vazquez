@@ -30,11 +30,11 @@ export default function CourseCardForm(e) {
     }
     else {
         labelInfo.innerText = "Definir link";
-        labelInfo.addEventListener('click', function(e){
-            form.classList.toggle('d-none');
-        })
         courseCard.appendChild(labelInfo);
     }
+    labelInfo.addEventListener('click', function(e){
+        form.classList.toggle('d-none');
+    })
 
     let labelCourseLink = document.createElement('label');
     labelCourseLink.innerText = "Link de la clase"
@@ -52,12 +52,13 @@ export default function CourseCardForm(e) {
     let inputCourseLink = document.createElement('input');
     inputCourseLink.name = "course-link";
     inputCourseLink.id = "course-link";
+    inputCourseLink.value = e.access_link != null ? e.access_link : "";
     form.appendChild(inputCourseLink);
 
     let button = document.createElement('input');
     button.classList = "text-sm btn btn-blue";
     button.type = "submit";
-    button.value = "Confirmar";
+    button.value = e.access_link == null ? "Confirmar" : "Actualizar";
     form.appendChild(button);
 
     form.classList.add('d-none');

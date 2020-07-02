@@ -277,6 +277,8 @@ a {
     color: var(--danger);
     font-size: 75%;
     font-weight: 400;
+    width: 100%;
+    float: left;
 }
 
 
@@ -490,6 +492,13 @@ a {
     background-color: var(--success);
     color: #ffffff;
     transition-duration: 0.5s;
+}
+
+.btn-disabled {
+    background-color: var(--main-border-color);
+    color: #ffffff;
+    transition-duration: 0.5s;
+    cursor: default;
 }
 
 .btn-blue:hover {
@@ -823,7 +832,7 @@ a {
 .course-card .box a {
     color: var(--main-font-color);
     font-size: 90%;
-    max-width: 70%;
+    width: 70%;
     float: left;
 }
 
@@ -1230,7 +1239,10 @@ button.mercadopago-button {
         height: 130px;
     }
 
-
+    .course-card .box {
+        width: 30%;
+        left: 35%;
+    }
 }
 
 @media (min-width: 1650px) {

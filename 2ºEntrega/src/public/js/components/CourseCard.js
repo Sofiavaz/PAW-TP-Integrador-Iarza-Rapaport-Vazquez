@@ -37,7 +37,7 @@ export default function CourseCard(course) {
     infoSection.appendChild(price);
 
     let courseTime = document.createElement('p');
-    courseTime.innerText = new Date(course.date_time).getHours() + ":" + new Date(course.date_time).getMinutes() + "hs";
+    courseTime.innerText = new Date(course.date_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + "hs";
     courseTime.classList.add('course-card-time');
     infoSection.appendChild(courseTime);
 
